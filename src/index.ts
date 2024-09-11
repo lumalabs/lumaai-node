@@ -13,6 +13,8 @@ const environments = {
 type Environment = keyof typeof environments;
 
 export interface ClientOptions {
+  authToken: string;
+
   /**
    * Specifies the environment to use for the API.
    *
@@ -83,11 +85,14 @@ export interface ClientOptions {
  * API Client for interfacing with the Luma AI API.
  */
 export class LumaAI extends Core.APIClient {
+  authToken: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Luma AI API.
    *
+   * @param {string} opts.authToken
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
    * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
@@ -97,8 +102,15 @@ export class LumaAI extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), authToken, ...opts }: ClientOptions) {
+    if (authToken === undefined) {
+      throw new Errors.LumaAIError(
+        "Missing required client option authToken; you need to instantiate the LumaAI client with an authToken option, like new LumaAI({ authToken: 'My Auth Token' }).",
+      );
+    }
+
     const options: ClientOptions = {
+      authToken,
       ...opts,
       baseURL,
       environment: opts.environment ?? 'production',
@@ -119,6 +131,8 @@ export class LumaAI extends Core.APIClient {
     });
 
     this._options = options;
+
+    this.authToken = authToken;
   }
 
   ping: API.Ping = new API.Ping(this);
@@ -133,6 +147,10 @@ export class LumaAI extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.authToken}` };
   }
 
   static LumaAI = this;

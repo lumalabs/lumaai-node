@@ -26,6 +26,7 @@ The full API of this library can be found in [api.md](api.md).
 import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
+  authToken: 'My Auth Token',
   environment: 'environment_1', // defaults to 'production'
 });
 
@@ -47,6 +48,7 @@ This library includes TypeScript definitions for all request params and response
 import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
+  authToken: 'My Auth Token',
   environment: 'environment_1', // defaults to 'production'
 });
 
