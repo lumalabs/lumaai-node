@@ -6,25 +6,8 @@ import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as API from './resources/index';
 
-const environments = {
-  production: 'http://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha',
-  environment_1: 'http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha',
-  environment_2: 'http://api.lumalabs.ai/dream-machine/v1alpha',
-  environment_3: 'http://localhost:9600/dream-machine/v1alpha',
-};
-type Environment = keyof typeof environments;
-
 export interface ClientOptions {
-  /**
-   * Specifies the environment to use for the API.
-   *
-   * Each environment maps to a different base URL:
-   * - `production` corresponds to `http://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_1` corresponds to `http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_2` corresponds to `http://api.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_3` corresponds to `http://localhost:9600/dream-machine/v1alpha`
-   */
-  environment?: Environment;
+  authToken: string;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -87,13 +70,15 @@ export interface ClientOptions {
  * API Client for interfacing with the Luma AI API.
  */
 export class LumaAI extends Core.APIClient {
+  authToken: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Luma AI API.
    *
-   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? http://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
+   * @param {string} opts.authToken
+   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? http://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -101,21 +86,21 @@ export class LumaAI extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), ...opts }: ClientOptions = {}) {
-    const options: ClientOptions = {
-      ...opts,
-      baseURL,
-      environment: opts.environment ?? 'production',
-    };
-
-    if (baseURL && opts.environment) {
+  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), authToken, ...opts }: ClientOptions) {
+    if (authToken === undefined) {
       throw new Errors.LumaAIError(
-        'Ambiguous URL; The `baseURL` option (or LUMA_AI_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
+        "Missing required client option authToken; you need to instantiate the LumaAI client with an authToken option, like new LumaAI({ authToken: 'My Auth Token' }).",
       );
     }
 
+    const options: ClientOptions = {
+      authToken,
+      ...opts,
+      baseURL: baseURL || `http://api.lumalabs.ai/dream-machine/v1alpha`,
+    };
+
     super({
-      baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURL: options.baseURL!,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -123,6 +108,8 @@ export class LumaAI extends Core.APIClient {
     });
 
     this._options = options;
+
+    this.authToken = authToken;
   }
 
   ping: API.Ping = new API.Ping(this);
@@ -137,6 +124,10 @@ export class LumaAI extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.authToken}` };
   }
 
   static LumaAI = this;
