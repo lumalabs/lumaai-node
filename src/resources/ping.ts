@@ -8,12 +8,12 @@ export class Ping extends APIResource {
   /**
    * Check if the API is running
    */
-  retrieve(options?: Core.RequestOptions): Core.APIPromise<PingRetrieveResponse> {
+  check(options?: Core.RequestOptions): Core.APIPromise<PingCheckResponse> {
     return this._client.get('/ping', options);
   }
 }
 
-export interface PingRetrieveResponse {
+export interface PingCheckResponse {
   /**
    * The message
    */
@@ -21,5 +21,5 @@ export interface PingRetrieveResponse {
 }
 
 export namespace Ping {
-  export import PingRetrieveResponse = PingAPI.PingRetrieveResponse;
+  export import PingCheckResponse = PingAPI.PingCheckResponse;
 }

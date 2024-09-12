@@ -2,16 +2,17 @@
 
 Types:
 
-- <code><a href="./src/resources/ping.ts">PingRetrieveResponse</a></code>
+- <code><a href="./src/resources/ping.ts">PingCheckResponse</a></code>
 
 Methods:
 
-- <code title="get /ping">client.ping.<a href="./src/resources/ping.ts">retrieve</a>() -> PingRetrieveResponse</code>
+- <code title="get /ping">client.ping.<a href="./src/resources/ping.ts">check</a>() -> PingCheckResponse</code>
 
 # Generations
 
 Types:
 
+- <code><a href="./src/resources/generations/generations.ts">CameraMotion</a></code>
 - <code><a href="./src/resources/generations/generations.ts">Generation</a></code>
 - <code><a href="./src/resources/generations/generations.ts">GenerationListResponse</a></code>
 
@@ -26,7 +27,6 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/generations/camera-motion.ts">CameraMotion</a></code>
 - <code><a href="./src/resources/generations/camera-motion.ts">CameraMotionListResponse</a></code>
 
 Methods:
