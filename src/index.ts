@@ -7,22 +7,24 @@ import * as Core from './core';
 import * as API from './resources/index';
 
 const environments = {
-  production: 'https://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha',
-  environment_1: 'https://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha',
-  environment_2: 'https://api.lumalabs.ai/dream-machine/v1alpha',
-  environment_3: 'http://localhost:9600/dream-machine/v1alpha',
+  production: 'https://api.lumalabs.ai/dream-machine/v1alpha',
+  production_api: 'https://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha',
+  staging: 'https://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha',
+  localhost: 'http://localhost:9600/dream-machine/v1alpha',
 };
 type Environment = keyof typeof environments;
 
 export interface ClientOptions {
+  authToken: string;
+
   /**
    * Specifies the environment to use for the API.
    *
    * Each environment maps to a different base URL:
-   * - `production` corresponds to `https://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_1` corresponds to `https://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_2` corresponds to `https://api.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_3` corresponds to `http://localhost:9600/dream-machine/v1alpha`
+   * - `production` corresponds to `https://api.lumalabs.ai/dream-machine/v1alpha`
+   * - `production_api` corresponds to `https://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha`
+   * - `staging` corresponds to `https://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha`
+   * - `localhost` corresponds to `http://localhost:9600/dream-machine/v1alpha`
    */
   environment?: Environment;
 
@@ -87,13 +89,16 @@ export interface ClientOptions {
  * API Client for interfacing with the Luma AI API.
  */
 export class LumaAI extends Core.APIClient {
+  authToken: string;
+
   private _options: ClientOptions;
 
   /**
    * API Client for interfacing with the Luma AI API.
    *
+   * @param {string} opts.authToken
    * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? https://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -101,8 +106,15 @@ export class LumaAI extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), ...opts }: ClientOptions = {}) {
+  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), authToken, ...opts }: ClientOptions) {
+    if (authToken === undefined) {
+      throw new Errors.LumaAIError(
+        "Missing required client option authToken; you need to instantiate the LumaAI client with an authToken option, like new LumaAI({ authToken: 'My Auth Token' }).",
+      );
+    }
+
     const options: ClientOptions = {
+      authToken,
       ...opts,
       baseURL,
       environment: opts.environment ?? 'production',
@@ -123,6 +135,8 @@ export class LumaAI extends Core.APIClient {
     });
 
     this._options = options;
+
+    this.authToken = authToken;
   }
 
   ping: API.Ping = new API.Ping(this);
@@ -137,6 +151,10 @@ export class LumaAI extends Core.APIClient {
       ...super.defaultHeaders(opts),
       ...this._options.defaultHeaders,
     };
+  }
+
+  protected override authHeaders(opts: Core.FinalRequestOptions): Core.Headers {
+    return { Authorization: `Bearer ${this.authToken}` };
   }
 
   static LumaAI = this;
@@ -183,9 +201,10 @@ export namespace LumaAI {
   export import RequestOptions = Core.RequestOptions;
 
   export import Ping = API.Ping;
-  export import PingRetrieveResponse = API.PingRetrieveResponse;
+  export import PingCheckResponse = API.PingCheckResponse;
 
   export import Generations = API.Generations;
+  export import CameraMotion = API.CameraMotion;
   export import Generation = API.Generation;
   export import GenerationListResponse = API.GenerationListResponse;
   export import GenerationCreateParams = API.GenerationCreateParams;
