@@ -27,11 +27,10 @@ import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
   authToken: 'My Auth Token',
-  environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
-  const generation = await client.generations.create();
+  const generation = await client.generations.create({ prompt: 'time machine' });
 
   console.log(generation.id);
 }
@@ -49,11 +48,11 @@ import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
   authToken: 'My Auth Token',
-  environment: 'environment_1', // defaults to 'production'
 });
 
 async function main() {
-  const generation: LumaAI.Generation = await client.generations.create();
+  const params: LumaAI.GenerationCreateParams = { prompt: 'time machine' };
+  const generation: LumaAI.Generation = await client.generations.create(params);
 }
 
 main();
@@ -70,7 +69,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const generation = await client.generations.create().catch(async (err) => {
+  const generation = await client.generations.create({ prompt: 'time machine' }).catch(async (err) => {
     if (err instanceof LumaAI.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
@@ -113,7 +112,7 @@ const client = new LumaAI({
 });
 
 // Or, configure per-request:
-await client.generations.create({
+await client.generations.create({ prompt: 'time machine' }, {
   maxRetries: 5,
 });
 ```
@@ -130,7 +129,7 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create({
+await client.generations.create({ prompt: 'time machine' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -151,11 +150,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new LumaAI();
 
-const response = await client.generations.create().asResponse();
+const response = await client.generations.create({ prompt: 'time machine' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: generation, response: raw } = await client.generations.create().withResponse();
+const { data: generation, response: raw } = await client.generations
+  .create({ prompt: 'time machine' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(generation.id);
 ```
@@ -261,9 +262,12 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create({
-  httpAgent: new http.Agent({ keepAlive: false }),
-});
+await client.generations.create(
+  { prompt: 'time machine' },
+  {
+    httpAgent: new http.Agent({ keepAlive: false }),
+  },
+);
 ```
 
 ## Semantic versioning

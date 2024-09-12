@@ -6,23 +6,8 @@ import { type Agent } from './_shims/index';
 import * as Core from './core';
 import * as API from './resources/index';
 
-const environments = {
-  production: 'http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha',
-  environment_1: 'http://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha',
-};
-type Environment = keyof typeof environments;
-
 export interface ClientOptions {
   authToken: string;
-
-  /**
-   * Specifies the environment to use for the API.
-   *
-   * Each environment maps to a different base URL:
-   * - `production` corresponds to `http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha`
-   * - `environment_1` corresponds to `http://internal-api.sandbox.labs.lumalabs.ai/dream-machine/v1alpha`
-   */
-  environment?: Environment;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -93,8 +78,7 @@ export class LumaAI extends Core.APIClient {
    * API Client for interfacing with the Luma AI API.
    *
    * @param {string} opts.authToken
-   * @param {Environment} [opts.environment=production] - Specifies the environment URL to use for the API.
-   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? http://internal-api.virginia.labs.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? http://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -112,18 +96,11 @@ export class LumaAI extends Core.APIClient {
     const options: ClientOptions = {
       authToken,
       ...opts,
-      baseURL,
-      environment: opts.environment ?? 'production',
+      baseURL: baseURL || `http://api.lumalabs.ai/dream-machine/v1alpha`,
     };
 
-    if (baseURL && opts.environment) {
-      throw new Errors.LumaAIError(
-        'Ambiguous URL; The `baseURL` option (or LUMA_AI_BASE_URL env var) and the `environment` option are given. If you want to use the environment you must pass baseURL: null',
-      );
-    }
-
     super({
-      baseURL: options.baseURL || environments[options.environment || 'production'],
+      baseURL: options.baseURL!,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
