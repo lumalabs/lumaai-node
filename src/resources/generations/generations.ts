@@ -38,6 +38,16 @@ export class Generations extends APIResource {
     }
     return this._client.get('/generations', { query, ...options });
   }
+
+  /**
+   * Remove a specific generation by its ID
+   */
+  delete(id: string, options?: Core.RequestOptions): Core.APIPromise<void> {
+    return this._client.delete(`/generations/${id}`, {
+      ...options,
+      headers: { Accept: '*/*', ...options?.headers },
+    });
+  }
 }
 
 /**
