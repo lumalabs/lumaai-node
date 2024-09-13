@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
 import * as CameraMotionAPI from './camera-motion';
-import * as GenerationsAPI from './generations';
 
 export class CameraMotion extends APIResource {
   /**
@@ -14,7 +13,7 @@ export class CameraMotion extends APIResource {
   }
 }
 
-export type CameraMotionListResponse = Array<GenerationsAPI.CameraMotion>;
+export type CameraMotionListResponse = Array<string>;
 
 export namespace CameraMotion {
   export import CameraMotionListResponse = CameraMotionAPI.CameraMotionListResponse;
