@@ -27,7 +27,6 @@ import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
   authToken: 'My Auth Token',
-  environment: 'production_api', // or 'production' | 'staging' | 'localhost'; defaults to 'production'
 });
 
 async function main() {
@@ -49,7 +48,6 @@ import LumaAI from 'luma_ai';
 
 const client = new LumaAI({
   authToken: 'My Auth Token',
-  environment: 'production_api', // or 'production' | 'staging' | 'localhost'; defaults to 'production'
 });
 
 async function main() {
