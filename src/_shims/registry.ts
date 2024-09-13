@@ -42,13 +42,11 @@ export let isFsReadStream: Shims['isFsReadStream'] | undefined = undefined;
 export function setShims(shims: Shims, options: { auto: boolean } = { auto: false }) {
   if (auto) {
     throw new Error(
-      `you must \`import 'luma_ai/shims/${shims.kind}'\` before importing anything else from luma_ai`,
+      `you must \`import 'lumaai/shims/${shims.kind}'\` before importing anything else from lumaai`,
     );
   }
   if (kind) {
-    throw new Error(
-      `can't \`import 'luma_ai/shims/${shims.kind}'\` after \`import 'luma_ai/shims/${kind}'\``,
-    );
+    throw new Error(`can't \`import 'lumaai/shims/${shims.kind}'\` after \`import 'lumaai/shims/${kind}'\``);
   }
   auto = options.auto;
   kind = shims.kind;

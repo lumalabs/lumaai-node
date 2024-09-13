@@ -1,5 +1,5 @@
-import { createResponseHeaders } from 'luma_ai/core';
-import { Headers } from 'luma_ai/_shims/index';
+import { createResponseHeaders } from 'lumaai/core';
+import { Headers } from 'lumaai/_shims/index';
 
 describe('response parsing', () => {
   // TODO: test unicode characters

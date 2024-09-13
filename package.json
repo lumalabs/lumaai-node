@@ -1,12 +1,12 @@
 {
-  "name": "luma_ai",
+  "name": "lumaai",
   "version": "0.0.1-alpha.0",
-  "description": "The official TypeScript library for the Luma AI API",
-  "author": "Luma AI <support@lumalabs.ai>",
+  "description": "The official TypeScript library for the Lumaai API",
+  "author": "Lumaai <support@lumalabs.ai>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:lumalabs/luma_ai-node",
+  "repository": "github:lumalabs/lumaai-node",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [
@@ -59,8 +59,8 @@
     "./shims/web.mjs"
   ],
   "imports": {
-    "luma_ai": ".",
-    "luma_ai/*": "./src/*"
+    "lumaai": ".",
+    "lumaai/*": "./src/*"
   },
   "exports": {
     "./_shims/auto/*": {

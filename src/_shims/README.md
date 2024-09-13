@@ -1,9 +1,9 @@
 # 👋 Wondering what everything in here does?
 
-`luma_ai` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
+`lumaai` supports a wide variety of runtime environments like Node.js, Deno, Bun, browsers, and various
 edge runtimes, as well as both CommonJS (CJS) and EcmaScript Modules (ESM).
 
-To do this, `luma_ai` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
+To do this, `lumaai` provides shims for either using `node-fetch` when in Node (because `fetch` is still experimental there) or the global `fetch` API built into the environment when not in Node.
 
 It uses [conditional exports](https://nodejs.org/api/packages.html#conditional-exports) to
 automatically select the correct shims for each environment. However, conditional exports are a fairly new
@@ -15,32 +15,32 @@ getting the wrong raw `Response` type from `.asResponse()`, for example.
 
 The user can work around these issues by manually importing one of:
 
-- `import 'luma_ai/shims/node'`
-- `import 'luma_ai/shims/web'`
+- `import 'lumaai/shims/node'`
+- `import 'lumaai/shims/web'`
 
 All of the code here in `_shims` handles selecting the automatic default shims or manual overrides.
 
 ### How it works - Runtime
 
-Runtime shims get installed by calling `setShims` exported by `luma_ai/_shims/registry`.
+Runtime shims get installed by calling `setShims` exported by `lumaai/_shims/registry`.
 
-Manually importing `luma_ai/shims/node` or `luma_ai/shims/web`, calls `setShims` with the respective runtime shims.
+Manually importing `lumaai/shims/node` or `lumaai/shims/web`, calls `setShims` with the respective runtime shims.
 
-All client code imports shims from `luma_ai/_shims/index`, which:
+All client code imports shims from `lumaai/_shims/index`, which:
 
 - checks if shims have been set manually
-- if not, calls `setShims` with the shims from `luma_ai/_shims/auto/runtime`
-- re-exports the installed shims from `luma_ai/_shims/registry`.
+- if not, calls `setShims` with the shims from `lumaai/_shims/auto/runtime`
+- re-exports the installed shims from `lumaai/_shims/registry`.
 
-`luma_ai/_shims/auto/runtime` exports web runtime shims.
-If the `node` export condition is set, the export map replaces it with `luma_ai/_shims/auto/runtime-node`.
+`lumaai/_shims/auto/runtime` exports web runtime shims.
+If the `node` export condition is set, the export map replaces it with `lumaai/_shims/auto/runtime-node`.
 
 ### How it works - Type time
 
-All client code imports shim types from `luma_ai/_shims/index`, which selects the manual types from `luma_ai/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `luma_ai/_shims/auto/types`.
+All client code imports shim types from `lumaai/_shims/index`, which selects the manual types from `lumaai/_shims/manual-types` if they have been declared, otherwise it exports the auto types from `lumaai/_shims/auto/types`.
 
-`luma_ai/_shims/manual-types` exports an empty namespace.
-Manually importing `luma_ai/shims/node` or `luma_ai/shims/web` merges declarations into this empty namespace, so they get picked up by `luma_ai/_shims/index`.
+`lumaai/_shims/manual-types` exports an empty namespace.
+Manually importing `lumaai/shims/node` or `lumaai/shims/web` merges declarations into this empty namespace, so they get picked up by `lumaai/_shims/index`.
 
-`luma_ai/_shims/auto/types` exports web type definitions.
-If the `node` export condition is set, the export map replaces it with `luma_ai/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.
+`lumaai/_shims/auto/types` exports web type definitions.
+If the `node` export condition is set, the export map replaces it with `lumaai/_shims/auto/types-node`, though TS only picks this up if `"moduleResolution": "nodenext"` or `"moduleResolution": "bundler"`.
