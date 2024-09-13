@@ -20,24 +20,6 @@ describe('resource generations', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('retrieve', async () => {
-    const responsePromise = client.generations.retrieve('id');
-    const rawResponse = await responsePromise.asResponse();
-    expect(rawResponse).toBeInstanceOf(Response);
-    const response = await responsePromise;
-    expect(response).not.toBeInstanceOf(Response);
-    const dataAndResponse = await responsePromise.withResponse();
-    expect(dataAndResponse.data).toBe(response);
-    expect(dataAndResponse.response).toBe(rawResponse);
-  });
-
-  test('retrieve: request options instead of params are passed correctly', async () => {
-    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
-    await expect(client.generations.retrieve('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      LumaAI.NotFoundError,
-    );
-  });
-
   test('list', async () => {
     const responsePromise = client.generations.list();
     const rawResponse = await responsePromise.asResponse();
@@ -77,6 +59,24 @@ describe('resource generations', () => {
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(client.generations.delete('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
+      LumaAI.NotFoundError,
+    );
+  });
+
+  test('get', async () => {
+    const responsePromise = client.generations.get('id');
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('get: request options instead of params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(client.generations.get('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
       LumaAI.NotFoundError,
     );
   });
