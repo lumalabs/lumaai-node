@@ -7,9 +7,9 @@ const config: JestConfigWithTsJest = {
     '^.+\\.(t|j)sx?$': ['@swc/jest', { sourceMaps: 'inline' }],
   },
   moduleNameMapper: {
-    '^luma_ai$': '<rootDir>/src/index.ts',
-    '^luma_ai/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
-    '^luma_ai/(.*)$': '<rootDir>/src/$1',
+    '^lumaai$': '<rootDir>/src/index.ts',
+    '^lumaai/_shims/auto/(.*)$': '<rootDir>/src/_shims/auto/$1-node',
+    '^lumaai/(.*)$': '<rootDir>/src/$1',
   },
   modulePathIgnorePatterns: [
     '<rootDir>/ecosystem-tests/',

@@ -1,6 +1,6 @@
 import fs from 'fs';
-import { toFile, type ResponseLike } from 'luma_ai/uploads';
-import { File } from 'luma_ai/_shims/index';
+import { toFile, type ResponseLike } from 'lumaai/uploads';
+import { File } from 'lumaai/_shims/index';
 
 class MyClass {
   name: string = 'foo';

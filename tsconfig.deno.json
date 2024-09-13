@@ -6,9 +6,9 @@
     "rootDir": "./deno",
     "lib": ["es2020", "DOM"],
     "paths": {
-      "luma_ai/_shims/auto/*": ["deno/_shims/auto/*-deno"],
-      "luma_ai/*": ["deno/*"],
-      "luma_ai": ["deno/index.ts"],
+      "lumaai/_shims/auto/*": ["deno/_shims/auto/*-deno"],
+      "lumaai/*": ["deno/*"],
+      "lumaai": ["deno/index.ts"],
     },
     "noEmit": true,
     "declaration": true,

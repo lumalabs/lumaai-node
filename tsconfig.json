@@ -9,9 +9,9 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "luma_ai/_shims/auto/*": ["src/_shims/auto/*-node"],
-      "luma_ai/*": ["src/*"],
-      "luma_ai": ["src/index.ts"],
+      "lumaai/_shims/auto/*": ["src/_shims/auto/*-node"],
+      "lumaai/*": ["src/*"],
+      "lumaai": ["src/index.ts"],
     },
     "noEmit": true,
 

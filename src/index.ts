@@ -12,7 +12,7 @@ export interface ClientOptions {
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['LUMA_AI_BASE_URL'].
+   * Defaults to process.env['LUMAAI_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -67,18 +67,18 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Luma AI API.
+ * API Client for interfacing with the Lumaai API.
  */
-export class LumaAI extends Core.APIClient {
+export class Lumaai extends Core.APIClient {
   authToken: string;
 
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Luma AI API.
+   * API Client for interfacing with the Lumaai API.
    *
    * @param {string} opts.authToken
-   * @param {string} [opts.baseURL=process.env['LUMA_AI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['LUMAAI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -86,10 +86,10 @@ export class LumaAI extends Core.APIClient {
    * @param {Core.Headers} opts.defaultHeaders - Default headers to include with every request to the API.
    * @param {Core.DefaultQuery} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
-  constructor({ baseURL = Core.readEnv('LUMA_AI_BASE_URL'), authToken, ...opts }: ClientOptions) {
+  constructor({ baseURL = Core.readEnv('LUMAAI_BASE_URL'), authToken, ...opts }: ClientOptions) {
     if (authToken === undefined) {
-      throw new Errors.LumaAIError(
-        "Missing required client option authToken; you need to instantiate the LumaAI client with an authToken option, like new LumaAI({ authToken: 'My Auth Token' }).",
+      throw new Errors.LumaaiError(
+        "Missing required client option authToken; you need to instantiate the Lumaai client with an authToken option, like new Lumaai({ authToken: 'My Auth Token' }).",
       );
     }
 
@@ -130,10 +130,10 @@ export class LumaAI extends Core.APIClient {
     return { Authorization: `Bearer ${this.authToken}` };
   }
 
-  static LumaAI = this;
+  static Lumaai = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static LumaAIError = Errors.LumaAIError;
+  static LumaaiError = Errors.LumaaiError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -152,7 +152,7 @@ export class LumaAI extends Core.APIClient {
 }
 
 export const {
-  LumaAIError,
+  LumaaiError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -170,7 +170,7 @@ export const {
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace LumaAI {
+export namespace Lumaai {
   export import RequestOptions = Core.RequestOptions;
 
   export import Ping = API.Ping;
@@ -184,4 +184,4 @@ export namespace LumaAI {
   export import GenerationListParams = API.GenerationListParams;
 }
 
-export default LumaAI;
+export default Lumaai;

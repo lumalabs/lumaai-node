@@ -4,8 +4,8 @@
 /**
  * Types will get added to this namespace when you import one of the following:
  *
- *   import 'luma_ai/shims/node'
- *   import 'luma_ai/shims/web'
+ *   import 'lumaai/shims/node'
+ *   import 'lumaai/shims/web'
  *
  * Importing more than one will cause type and runtime errors.
  */
