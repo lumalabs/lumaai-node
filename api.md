@@ -2,7 +2,6 @@
 
 Types:
 
-- <code><a href="./src/resources/generations/generations.ts">CameraMotion</a></code>
 - <code><a href="./src/resources/generations/generations.ts">Generation</a></code>
 - <code><a href="./src/resources/generations/generations.ts">GenerationListResponse</a></code>
 

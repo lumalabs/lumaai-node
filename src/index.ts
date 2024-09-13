@@ -174,7 +174,6 @@ export namespace Lumaai {
   export import RequestOptions = Core.RequestOptions;
 
   export import Generations = API.Generations;
-  export import CameraMotion = API.CameraMotion;
   export import Generation = API.Generation;
   export import GenerationListResponse = API.GenerationListResponse;
   export import GenerationCreateParams = API.GenerationCreateParams;
