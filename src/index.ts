@@ -112,8 +112,8 @@ export class Lumaai extends Core.APIClient {
     this.authToken = authToken;
   }
 
-  ping: API.Ping = new API.Ping(this);
   generations: API.Generations = new API.Generations(this);
+  ping: API.Ping = new API.Ping(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -173,15 +173,15 @@ export import fileFromPath = Uploads.fileFromPath;
 export namespace Lumaai {
   export import RequestOptions = Core.RequestOptions;
 
-  export import Ping = API.Ping;
-  export import PingCheckResponse = API.PingCheckResponse;
-
   export import Generations = API.Generations;
   export import CameraMotion = API.CameraMotion;
   export import Generation = API.Generation;
   export import GenerationListResponse = API.GenerationListResponse;
   export import GenerationCreateParams = API.GenerationCreateParams;
   export import GenerationListParams = API.GenerationListParams;
+
+  export import Ping = API.Ping;
+  export import PingCheckResponse = API.PingCheckResponse;
 }
 
 export default Lumaai;
