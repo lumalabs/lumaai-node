@@ -28,7 +28,11 @@ const client = new Lumaai({
 });
 
 async function main() {
-  const generation = await client.generations.create({ prompt: 'time machine' });
+  const generation = await client.generations.create({
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  });
 
   console.log(generation.id);
 }
@@ -49,7 +53,11 @@ const client = new Lumaai({
 });
 
 async function main() {
-  const params: Lumaai.GenerationCreateParams = { prompt: 'time machine' };
+  const params: Lumaai.GenerationCreateParams = {
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  };
   const generation: Lumaai.Generation = await client.generations.create(params);
 }
 
@@ -67,15 +75,21 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const generation = await client.generations.create({ prompt: 'time machine' }).catch(async (err) => {
-    if (err instanceof Lumaai.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+  const generation = await client.generations
+    .create({
+      aspect_ratio: '16:9',
+      prompt:
+        'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+    })
+    .catch(async (err) => {
+      if (err instanceof Lumaai.APIError) {
+        console.log(err.status); // 400
+        console.log(err.name); // BadRequestError
+        console.log(err.headers); // {server: 'nginx', ...}
+      } else {
+        throw err;
+      }
+    });
 }
 
 main();
@@ -110,7 +124,7 @@ const client = new Lumaai({
 });
 
 // Or, configure per-request:
-await client.generations.create({ prompt: 'time machine' }, {
+await client.generations.create({ aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
   maxRetries: 5,
 });
 ```
@@ -127,7 +141,7 @@ const client = new Lumaai({
 });
 
 // Override per-request:
-await client.generations.create({ prompt: 'time machine' }, {
+await client.generations.create({ aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -148,12 +162,22 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new Lumaai();
 
-const response = await client.generations.create({ prompt: 'time machine' }).asResponse();
+const response = await client.generations
+  .create({
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  })
+  .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: generation, response: raw } = await client.generations
-  .create({ prompt: 'time machine' })
+  .create({
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(generation.id);
@@ -261,7 +285,11 @@ const client = new Lumaai({
 
 // Override per-request:
 await client.generations.create(
-  { prompt: 'time machine' },
+  {
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  },
   {
     httpAgent: new http.Agent({ keepAlive: false }),
   },
