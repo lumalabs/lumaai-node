@@ -1,8 +1,8 @@
-# Luma AI Node API Library
+# Lumaai Node API Library
 
-[![NPM version](https://img.shields.io/npm/v/luma_ai.svg)](https://npmjs.org/package/luma_ai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/luma_ai)
+[![NPM version](https://img.shields.io/npm/v/lumaai.svg)](https://npmjs.org/package/lumaai) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/lumaai)
 
-This library provides convenient access to the Luma AI REST API from server-side TypeScript or JavaScript.
+This library provides convenient access to the Lumaai REST API from server-side TypeScript or JavaScript.
 
 The REST API documentation can be found on [lumalabs.ai](https://lumalabs.ai). The full API of this library can be found in [api.md](api.md).
 
@@ -11,11 +11,11 @@ It is generated with [Stainless](https://www.stainlessapi.com/).
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:lumalabs/luma_ai-node.git
+npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install luma_ai`
+> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install lumaai`
 
 ## Usage
 
@@ -23,9 +23,9 @@ The full API of this library can be found in [api.md](api.md).
 
 <!-- prettier-ignore -->
 ```js
-import LumaAI from 'luma_ai';
+import Lumaai from 'lumaai';
 
-const client = new LumaAI({
+const client = new Lumaai({
   authToken: 'My Auth Token',
 });
 
@@ -44,15 +44,15 @@ This library includes TypeScript definitions for all request params and response
 
 <!-- prettier-ignore -->
 ```ts
-import LumaAI from 'luma_ai';
+import Lumaai from 'lumaai';
 
-const client = new LumaAI({
+const client = new Lumaai({
   authToken: 'My Auth Token',
 });
 
 async function main() {
-  const params: LumaAI.GenerationCreateParams = { prompt: 'time machine' };
-  const generation: LumaAI.Generation = await client.generations.create(params);
+  const params: Lumaai.GenerationCreateParams = { prompt: 'time machine' };
+  const generation: Lumaai.Generation = await client.generations.create(params);
 }
 
 main();
@@ -70,7 +70,7 @@ a subclass of `APIError` will be thrown:
 ```ts
 async function main() {
   const generation = await client.generations.create({ prompt: 'time machine' }).catch(async (err) => {
-    if (err instanceof LumaAI.APIError) {
+    if (err instanceof Lumaai.APIError) {
       console.log(err.status); // 400
       console.log(err.name); // BadRequestError
       console.log(err.headers); // {server: 'nginx', ...}
@@ -107,7 +107,7 @@ You can use the `maxRetries` option to configure or disable this:
 <!-- prettier-ignore -->
 ```js
 // Configure the default for all requests:
-const client = new LumaAI({
+const client = new Lumaai({
   maxRetries: 0, // default is 2
 });
 
@@ -124,7 +124,7 @@ Requests time out after 1 minute by default. You can configure this with a `time
 <!-- prettier-ignore -->
 ```ts
 // Configure the default for all requests:
-const client = new LumaAI({
+const client = new Lumaai({
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
@@ -148,7 +148,7 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 
 <!-- prettier-ignore -->
 ```ts
-const client = new LumaAI();
+const client = new Lumaai();
 
 const response = await client.generations.create({ prompt: 'time machine' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
@@ -211,17 +211,17 @@ By default, this library uses `node-fetch` in Node, and expects a global `fetch`
 
 If you would prefer to use a global, web-standards-compliant `fetch` function even in a Node environment,
 (for example, if you are running Node with `--experimental-fetch` or using NextJS which polyfills with `undici`),
-add the following import before your first import `from "LumaAI"`:
+add the following import before your first import `from "Lumaai"`:
 
 ```ts
 // Tell TypeScript and the package to use the global web fetch instead of node-fetch.
 // Note, despite the name, this does not add any polyfills, but expects them to be provided if needed.
-import 'luma_ai/shims/web';
-import LumaAI from 'luma_ai';
+import 'lumaai/shims/web';
+import Lumaai from 'lumaai';
 ```
 
-To do the inverse, add `import "luma_ai/shims/node"` (which does import polyfills).
-This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/lumalabs/luma_ai-node/tree/main/src/_shims#readme)).
+To do the inverse, add `import "lumaai/shims/node"` (which does import polyfills).
+This can also be useful if you are getting the wrong TypeScript types for `Response` ([more details](https://github.com/lumalabs/lumaai-node/tree/main/src/_shims#readme)).
 
 ### Logging and middleware
 
@@ -230,9 +230,9 @@ which can be used to inspect or alter the `Request` or `Response` before/after e
 
 ```ts
 import { fetch } from 'undici'; // as one example
-import LumaAI from 'luma_ai';
+import Lumaai from 'lumaai';
 
-const client = new LumaAI({
+const client = new Lumaai({
   fetch: async (url: RequestInfo, init?: RequestInit): Promise<Response> => {
     console.log('About to make a request', url, init);
     const response = await fetch(url, init);
@@ -257,7 +257,7 @@ import http from 'http';
 import { HttpsProxyAgent } from 'https-proxy-agent';
 
 // Configure the default for all requests:
-const client = new LumaAI({
+const client = new Lumaai({
   httpAgent: new HttpsProxyAgent(process.env.PROXY_URL),
 });
 
@@ -280,7 +280,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/lumalabs/luma_ai-node/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/lumalabs/lumaai-node/issues) with questions, bugs, or suggestions.
 
 ## Requirements
 

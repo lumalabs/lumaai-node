@@ -2,9 +2,9 @@
 
 import { castToError, Headers } from './core';
 
-export class LumaAIError extends Error {}
+export class LumaaiError extends Error {}
 
-export class APIError extends LumaAIError {
+export class APIError extends LumaaiError {
   readonly status: number | undefined;
   readonly headers: Headers | undefined;
   readonly error: Object | undefined;
