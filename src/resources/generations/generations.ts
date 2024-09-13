@@ -18,13 +18,6 @@ export class Generations extends APIResource {
   }
 
   /**
-   * Retrieve details of a specific generation by its ID
-   */
-  retrieve(id: string, options?: Core.RequestOptions): Core.APIPromise<Generation> {
-    return this._client.get(`/generations/${id}`, options);
-  }
-
-  /**
    * Retrieve a list of generations with optional filtering and sorting
    */
   list(query?: GenerationListParams, options?: Core.RequestOptions): Core.APIPromise<GenerationListResponse>;
@@ -47,6 +40,13 @@ export class Generations extends APIResource {
       ...options,
       headers: { Accept: '*/*', ...options?.headers },
     });
+  }
+
+  /**
+   * Retrieve details of a specific generation by its ID
+   */
+  get(id: string, options?: Core.RequestOptions): Core.APIPromise<Generation> {
+    return this._client.get(`/generations/${id}`, options);
   }
 }
 
