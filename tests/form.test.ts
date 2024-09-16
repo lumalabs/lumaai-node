@@ -1,6 +1,6 @@
-import { multipartFormRequestOptions, createForm } from 'luma_ai/core';
-import { Blob } from 'luma_ai/_shims/index';
-import { toFile } from 'luma_ai';
+import { multipartFormRequestOptions, createForm } from 'lumaai/core';
+import { Blob } from 'lumaai/_shims/index';
+import { toFile } from 'lumaai';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

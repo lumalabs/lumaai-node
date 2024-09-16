@@ -3,7 +3,6 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import { CameraMotion } from './camera-motion';
 import * as GenerationsAPI from './generations';
 import * as CameraMotionAPI from './camera-motion';
 
@@ -49,26 +48,6 @@ export class Generations extends APIResource {
     return this._client.get(`/generations/${id}`, options);
   }
 }
-
-/**
- * The camera motion of the generation
- */
-export type CameraMotion =
-  | 'static'
-  | 'move_left'
-  | 'move_right'
-  | 'move_up'
-  | 'move_down'
-  | 'push_in'
-  | 'pull_out'
-  | 'zoom_in'
-  | 'zoom_out'
-  | 'pan_left'
-  | 'pan_right'
-  | 'orbit_left'
-  | 'orbit_right'
-  | 'crane_up'
-  | 'crane_down';
 
 /**
  * The generation response object
@@ -129,11 +108,6 @@ export namespace Generation {
      * The aspect ratio of the generation
      */
     aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
-
-    /**
-     * The camera motion of the generation
-     */
-    camera_motion?: GenerationsAPI.CameraMotion;
 
     /**
      * The keyframes of the generation
@@ -256,11 +230,6 @@ export interface GenerationCreateParams {
   aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
 
   /**
-   * The camera motion of the generation
-   */
-  camera_motion?: CameraMotion;
-
-  /**
    * The keyframes of the generation
    */
   keyframes?: GenerationCreateParams.Keyframes;
@@ -350,10 +319,10 @@ export interface GenerationListParams {
 }
 
 export namespace Generations {
-  export import CameraMotion = GenerationsAPI.CameraMotion;
   export import Generation = GenerationsAPI.Generation;
   export import GenerationListResponse = GenerationsAPI.GenerationListResponse;
   export import GenerationCreateParams = GenerationsAPI.GenerationCreateParams;
   export import GenerationListParams = GenerationsAPI.GenerationListParams;
+  export import CameraMotion = CameraMotionAPI.CameraMotion;
   export import CameraMotionListResponse = CameraMotionAPI.CameraMotionListResponse;
 }

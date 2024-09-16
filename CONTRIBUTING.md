@@ -14,13 +14,13 @@ This will install all the required dependencies and build output files to `dist/
 
 ## Modifying/Adding code
 
-Most of the SDK is generated code, and any modified code will be overridden on the next generation. The
-`src/lib/` and `examples/` directories are exceptions and will never be overridden.
+Most of the SDK is generated code. Modifications to code will be persisted between generations, but may
+result in merge conflicts between manual patches and changes from the generator. The generator will never
+modify the contents of the `src/lib/` and `examples/` directories.
 
 ## Adding and running examples
 
-All files in the `examples/` directory are not modified by the Stainless generator and can be freely edited or
-added to.
+All files in the `examples/` directory are not modified by the generator and can be freely edited or added to.
 
 ```bash
 // add an example to examples/<your-example>.ts
@@ -42,25 +42,25 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```bash
-npm install git+ssh://git@github.com:lumalabs/luma_ai-node.git
+npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```bash
 # Clone
-git clone https://www.github.com/lumalabs/luma_ai-node
-cd luma_ai-node
+git clone https://www.github.com/lumalabs/lumaai-node
+cd lumaai-node
 
 # With yarn
 yarn link
 cd ../my-package
-yarn link luma_ai
+yarn link lumaai
 
 # With pnpm
 pnpm link --global
 cd ../my-package
-pnpm link -—global luma_ai
+pnpm link -—global lumaai
 ```
 
 ## Running tests
@@ -99,7 +99,7 @@ the changes aren't made through the automated pipeline, you may want to make rel
 
 ### Publish with a GitHub workflow
 
-You can release to package managers by using [the `Publish NPM` GitHub action](https://www.github.com/lumalabs/luma_ai-node/actions/workflows/publish-npm.yml). This requires a setup organization or repository secret to be set up.
+You can release to package managers by using [the `Publish NPM` GitHub action](https://www.github.com/lumalabs/lumaai-node/actions/workflows/publish-npm.yml). This requires a setup organization or repository secret to be set up.
 
 ### Publish manually
 
