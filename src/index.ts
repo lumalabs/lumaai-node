@@ -70,15 +70,15 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Lumaai API.
+ * API Client for interfacing with the LumaAI API.
  */
-export class Lumaai extends Core.APIClient {
+export class LumaAI extends Core.APIClient {
   authToken: string;
 
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Lumaai API.
+   * API Client for interfacing with the LumaAI API.
    *
    * @param {string | undefined} [opts.authToken=process.env['LUMAAI_API_KEY'] ?? undefined]
    * @param {string} [opts.baseURL=process.env['LUMAAI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1] - Override the default base URL for the API.
@@ -95,8 +95,8 @@ export class Lumaai extends Core.APIClient {
     ...opts
   }: ClientOptions = {}) {
     if (authToken === undefined) {
-      throw new Errors.LumaaiError(
-        "The LUMAAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the Lumaai client with an authToken option, like new Lumaai({ authToken: 'My Auth Token' }).",
+      throw new Errors.LumaAIError(
+        "The LUMAAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the LumaAI client with an authToken option, like new LumaAI({ authToken: 'My Auth Token' }).",
       );
     }
 
@@ -137,10 +137,10 @@ export class Lumaai extends Core.APIClient {
     return { Authorization: `Bearer ${this.authToken}` };
   }
 
-  static Lumaai = this;
+  static LumaAI = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static LumaaiError = Errors.LumaaiError;
+  static LumaAIError = Errors.LumaAIError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -159,7 +159,7 @@ export class Lumaai extends Core.APIClient {
 }
 
 export const {
-  LumaaiError,
+  LumaAIError,
   APIError,
   APIConnectionError,
   APIConnectionTimeoutError,
@@ -177,7 +177,7 @@ export const {
 export import toFile = Uploads.toFile;
 export import fileFromPath = Uploads.fileFromPath;
 
-export namespace Lumaai {
+export namespace LumaAI {
   export import RequestOptions = Core.RequestOptions;
 
   export import Generations = API.Generations;
@@ -190,4 +190,4 @@ export namespace Lumaai {
   export import PingCheckResponse = API.PingCheckResponse;
 }
 
-export default Lumaai;
+export default LumaAI;
