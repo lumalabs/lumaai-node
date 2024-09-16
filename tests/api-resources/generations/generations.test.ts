@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Lumaai from 'lumaai';
+import LumaAI from 'lumaai';
 import { Response } from 'node-fetch';
 
-const client = new Lumaai({
+const client = new LumaAI({
   authToken: 'My Auth Token',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
@@ -34,7 +34,7 @@ describe('resource generations', () => {
   test('list: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(client.generations.list({ path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Lumaai.NotFoundError,
+      LumaAI.NotFoundError,
     );
   });
 
@@ -42,7 +42,7 @@ describe('resource generations', () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(
       client.generations.list({ limit: 0, offset: 0 }, { path: '/_stainless_unknown_path' }),
-    ).rejects.toThrow(Lumaai.NotFoundError);
+    ).rejects.toThrow(LumaAI.NotFoundError);
   });
 
   test('delete', async () => {
@@ -59,7 +59,7 @@ describe('resource generations', () => {
   test('delete: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(client.generations.delete('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Lumaai.NotFoundError,
+      LumaAI.NotFoundError,
     );
   });
 
@@ -77,7 +77,7 @@ describe('resource generations', () => {
   test('get: request options instead of params are passed correctly', async () => {
     // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
     await expect(client.generations.get('id', { path: '/_stainless_unknown_path' })).rejects.toThrow(
-      Lumaai.NotFoundError,
+      LumaAI.NotFoundError,
     );
   });
 });
