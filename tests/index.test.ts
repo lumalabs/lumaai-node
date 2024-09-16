@@ -154,13 +154,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['LUMAAI_BASE_URL'] = ''; // empty
       const client = new Lumaai({ authToken: 'My Auth Token' });
-      expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1alpha');
+      expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1');
     });
 
     test('blank env variable', () => {
       process.env['LUMAAI_BASE_URL'] = '  '; // blank
       const client = new Lumaai({ authToken: 'My Auth Token' });
-      expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1alpha');
+      expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1');
     });
   });
 
