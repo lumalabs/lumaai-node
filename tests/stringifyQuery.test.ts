@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Lumaai } from 'lumaai';
+import { LumaAI } from 'lumaai';
 
-const { stringifyQuery } = Lumaai.prototype as any;
+const { stringifyQuery } = LumaAI.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [

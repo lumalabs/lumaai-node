@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import Lumaai from 'lumaai';
+import LumaAI from 'lumaai';
 import { APIUserAbortError } from 'lumaai';
 import { Headers } from 'lumaai/core';
 import defaultFetch, { Response, type RequestInit, type RequestInfo } from 'node-fetch';
@@ -20,7 +20,7 @@ describe('instantiate client', () => {
   });
 
   describe('defaultHeaders', () => {
-    const client = new Lumaai({
+    const client = new LumaAI({
       baseURL: 'http://localhost:5000/',
       defaultHeaders: { 'X-My-Default-Header': '2' },
       authToken: 'My Auth Token',
@@ -52,7 +52,7 @@ describe('instantiate client', () => {
 
   describe('defaultQuery', () => {
     test('with null query params given', () => {
-      const client = new Lumaai({
+      const client = new LumaAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo' },
         authToken: 'My Auth Token',
@@ -61,7 +61,7 @@ describe('instantiate client', () => {
     });
 
     test('multiple default query params', () => {
-      const client = new Lumaai({
+      const client = new LumaAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { apiVersion: 'foo', hello: 'world' },
         authToken: 'My Auth Token',
@@ -70,7 +70,7 @@ describe('instantiate client', () => {
     });
 
     test('overriding with `undefined`', () => {
-      const client = new Lumaai({
+      const client = new LumaAI({
         baseURL: 'http://localhost:5000/',
         defaultQuery: { hello: 'world' },
         authToken: 'My Auth Token',
@@ -80,7 +80,7 @@ describe('instantiate client', () => {
   });
 
   test('custom fetch', async () => {
-    const client = new Lumaai({
+    const client = new LumaAI({
       baseURL: 'http://localhost:5000/',
       authToken: 'My Auth Token',
       fetch: (url) => {
@@ -97,7 +97,7 @@ describe('instantiate client', () => {
   });
 
   test('custom signal', async () => {
-    const client = new Lumaai({
+    const client = new LumaAI({
       baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
       authToken: 'My Auth Token',
       fetch: (...args) => {
@@ -124,7 +124,7 @@ describe('instantiate client', () => {
 
   describe('baseUrl', () => {
     test('trailing slash', () => {
-      const client = new Lumaai({
+      const client = new LumaAI({
         baseURL: 'http://localhost:5000/custom/path/',
         authToken: 'My Auth Token',
       });
@@ -132,7 +132,7 @@ describe('instantiate client', () => {
     });
 
     test('no trailing slash', () => {
-      const client = new Lumaai({ baseURL: 'http://localhost:5000/custom/path', authToken: 'My Auth Token' });
+      const client = new LumaAI({ baseURL: 'http://localhost:5000/custom/path', authToken: 'My Auth Token' });
       expect(client.buildURL('/foo', null)).toEqual('http://localhost:5000/custom/path/foo');
     });
 
@@ -141,55 +141,55 @@ describe('instantiate client', () => {
     });
 
     test('explicit option', () => {
-      const client = new Lumaai({ baseURL: 'https://example.com', authToken: 'My Auth Token' });
+      const client = new LumaAI({ baseURL: 'https://example.com', authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://example.com');
     });
 
     test('env variable', () => {
       process.env['LUMAAI_BASE_URL'] = 'https://example.com/from_env';
-      const client = new Lumaai({ authToken: 'My Auth Token' });
+      const client = new LumaAI({ authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://example.com/from_env');
     });
 
     test('empty env variable', () => {
       process.env['LUMAAI_BASE_URL'] = ''; // empty
-      const client = new Lumaai({ authToken: 'My Auth Token' });
+      const client = new LumaAI({ authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1');
     });
 
     test('blank env variable', () => {
       process.env['LUMAAI_BASE_URL'] = '  '; // blank
-      const client = new Lumaai({ authToken: 'My Auth Token' });
+      const client = new LumaAI({ authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1');
     });
   });
 
   test('maxRetries option is correctly set', () => {
-    const client = new Lumaai({ maxRetries: 4, authToken: 'My Auth Token' });
+    const client = new LumaAI({ maxRetries: 4, authToken: 'My Auth Token' });
     expect(client.maxRetries).toEqual(4);
 
     // default
-    const client2 = new Lumaai({ authToken: 'My Auth Token' });
+    const client2 = new LumaAI({ authToken: 'My Auth Token' });
     expect(client2.maxRetries).toEqual(2);
   });
 
   test('with environment variable arguments', () => {
     // set options via env var
     process.env['LUMAAI_API_KEY'] = 'My Auth Token';
-    const client = new Lumaai();
+    const client = new LumaAI();
     expect(client.authToken).toBe('My Auth Token');
   });
 
   test('with overriden environment variable arguments', () => {
     // set options via env var
     process.env['LUMAAI_API_KEY'] = 'another My Auth Token';
-    const client = new Lumaai({ authToken: 'My Auth Token' });
+    const client = new LumaAI({ authToken: 'My Auth Token' });
     expect(client.authToken).toBe('My Auth Token');
   });
 });
 
 describe('request building', () => {
-  const client = new Lumaai({ authToken: 'My Auth Token' });
+  const client = new LumaAI({ authToken: 'My Auth Token' });
 
   describe('Content-Length', () => {
     test('handles multi-byte characters', () => {
@@ -231,7 +231,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Lumaai({ authToken: 'My Auth Token', timeout: 10, fetch: testFetch });
+    const client = new LumaAI({ authToken: 'My Auth Token', timeout: 10, fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -258,7 +258,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Lumaai({ authToken: 'My Auth Token', fetch: testFetch });
+    const client = new LumaAI({ authToken: 'My Auth Token', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
@@ -285,7 +285,7 @@ describe('retries', () => {
       return new Response(JSON.stringify({ a: 1 }), { headers: { 'Content-Type': 'application/json' } });
     };
 
-    const client = new Lumaai({ authToken: 'My Auth Token', fetch: testFetch });
+    const client = new LumaAI({ authToken: 'My Auth Token', fetch: testFetch });
 
     expect(await client.request({ path: '/foo', method: 'get' })).toEqual({ a: 1 });
     expect(count).toEqual(2);
