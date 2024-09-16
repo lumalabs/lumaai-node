@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.2 (2024-09-16)
+
+Full Changelog: [v1.0.1...v1.0.2](https://github.com/lumalabs/lumaai-node/compare/v1.0.1...v1.0.2)
+
+### Features
+
+* **api:** OpenAPI spec update via Stainless API ([#27](https://github.com/lumalabs/lumaai-node/issues/27)) ([3e71213](https://github.com/lumalabs/lumaai-node/commit/3e712131e36030f775b9e3e9e5dcdb48bb17a36c))
+
 ## 1.0.1 (2024-09-16)
 
 Full Changelog: [v1.0.0...v1.0.1](https://github.com/lumalabs/lumaai-node/compare/v1.0.0...v1.0.1)
