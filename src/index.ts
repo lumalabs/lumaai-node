@@ -81,7 +81,7 @@ export class Lumaai extends Core.APIClient {
    * API Client for interfacing with the Lumaai API.
    *
    * @param {string | undefined} [opts.authToken=process.env['LUMAAI_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['LUMAAI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1alpha] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['LUMAAI_BASE_URL'] ?? https://api.lumalabs.ai/dream-machine/v1] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {number} [opts.httpAgent] - An HTTP agent used to manage HTTP(s) connections.
    * @param {Core.Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -103,7 +103,7 @@ export class Lumaai extends Core.APIClient {
     const options: ClientOptions = {
       authToken,
       ...opts,
-      baseURL: baseURL || `https://api.lumalabs.ai/dream-machine/v1alpha`,
+      baseURL: baseURL || `https://api.lumalabs.ai/dream-machine/v1`,
     };
 
     super({
