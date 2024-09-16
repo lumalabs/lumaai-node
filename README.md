@@ -9,11 +9,8 @@ The REST API documentation can be found on [lumalabs.ai](https://lumalabs.ai). T
 ## Installation
 
 ```sh
-npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
+npm install lumaai
 ```
-
-> [!NOTE]
-> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install lumaai`
 
 ## Usage
 
