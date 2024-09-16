@@ -9,8 +9,11 @@ The REST API documentation can be found on [lumalabs.ai](https://lumalabs.ai). T
 ## Installation
 
 ```sh
-npm install lumaai
+npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
 ```
+
+> [!NOTE]
+> Once this package is [published to npm](https://app.stainlessapi.com/docs/guides/publish), this will become: `npm install lumaai`
 
 ## Usage
 
@@ -21,7 +24,7 @@ The full API of this library can be found in [api.md](api.md).
 import Lumaai from 'lumaai';
 
 const client = new Lumaai({
-  authToken: 'My Auth Token',
+  authToken: process.env['LUMAAI_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {
@@ -46,7 +49,7 @@ This library includes TypeScript definitions for all request params and response
 import Lumaai from 'lumaai';
 
 const client = new Lumaai({
-  authToken: 'My Auth Token',
+  authToken: process.env['LUMAAI_API_KEY'], // This is the default and can be omitted
 });
 
 async function main() {

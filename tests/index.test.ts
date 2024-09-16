@@ -172,6 +172,20 @@ describe('instantiate client', () => {
     const client2 = new Lumaai({ authToken: 'My Auth Token' });
     expect(client2.maxRetries).toEqual(2);
   });
+
+  test('with environment variable arguments', () => {
+    // set options via env var
+    process.env['LUMAAI_API_KEY'] = 'My Auth Token';
+    const client = new Lumaai();
+    expect(client.authToken).toBe('My Auth Token');
+  });
+
+  test('with overriden environment variable arguments', () => {
+    // set options via env var
+    process.env['LUMAAI_API_KEY'] = 'another My Auth Token';
+    const client = new Lumaai({ authToken: 'My Auth Token' });
+    expect(client.authToken).toBe('My Auth Token');
+  });
 });
 
 describe('request building', () => {
