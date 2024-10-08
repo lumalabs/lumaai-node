@@ -31,3 +31,13 @@ Types:
 Methods:
 
 - <code title="get /ping">client.ping.<a href="./src/resources/ping.ts">check</a>() -> PingCheckResponse</code>
+
+# Credits
+
+Types:
+
+- <code><a href="./src/resources/credits.ts">CreditGetResponse</a></code>
+
+Methods:
+
+- <code title="get /credits">client.credits.<a href="./src/resources/credits.ts">get</a>() -> CreditGetResponse</code>
