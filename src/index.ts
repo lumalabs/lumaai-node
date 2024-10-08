@@ -121,6 +121,7 @@ export class LumaAI extends Core.APIClient {
 
   generations: API.Generations = new API.Generations(this);
   ping: API.Ping = new API.Ping(this);
+  credits: API.Credits = new API.Credits(this);
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
@@ -188,6 +189,9 @@ export namespace LumaAI {
 
   export import Ping = API.Ping;
   export import PingCheckResponse = API.PingCheckResponse;
+
+  export import Credits = API.Credits;
+  export import CreditGetResponse = API.CreditGetResponse;
 }
 
 export default LumaAI;
