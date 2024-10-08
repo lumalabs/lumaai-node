@@ -5,9 +5,9 @@ Other package managers may work but are not officially supported for development
 
 To set up the repository, run:
 
-```sh
-$ yarn
-$ yarn build
+```bash
+yarn
+yarn build
 ```
 
 This will install all the required dependencies and build output files to `dist/`.
@@ -22,7 +22,7 @@ modify the contents of the `src/lib/` and `examples/` directories.
 
 All files in the `examples/` directory are not modified by the generator and can be freely edited or added to.
 
-```ts
+```bash
 // add an example to examples/<your-example>.ts
 
 #!/usr/bin/env -S npm run tsn -T
@@ -41,38 +41,38 @@ If you’d like to use the repository from source, you can either install from g
 
 To install via git:
 
-```sh
-$ npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
+```bash
+npm install git+ssh://git@github.com:lumalabs/lumaai-node.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
-```sh
+```bash
 # Clone
-$ git clone https://www.github.com/lumalabs/lumaai-node
-$ cd lumaai-node
+git clone https://www.github.com/lumalabs/lumaai-node
+cd lumaai-node
 
 # With yarn
-$ yarn link
-$ cd ../my-package
-$ yarn link lumaai
+yarn link
+cd ../my-package
+yarn link lumaai
 
 # With pnpm
-$ pnpm link --global
-$ cd ../my-package
-$ pnpm link -—global lumaai
+pnpm link --global
+cd ../my-package
+pnpm link -—global lumaai
 ```
 
 ## Running tests
 
 Most tests require you to [set up a mock server](https://github.com/stoplightio/prism) against the OpenAPI spec to run the tests.
 
-```sh
-$ npx prism mock path/to/your/openapi.yml
+```bash
+npx prism mock path/to/your/openapi.yml
 ```
 
-```sh
-$ yarn run test
+```bash
+yarn run test
 ```
 
 ## Linting and formatting
@@ -82,14 +82,14 @@ This repository uses [prettier](https://www.npmjs.com/package/prettier) and
 
 To lint:
 
-```sh
-$ yarn lint
+```bash
+yarn lint
 ```
 
 To format and fix all lint issues automatically:
 
-```sh
-$ yarn fix
+```bash
+yarn fix
 ```
 
 ## Publishing and releases
