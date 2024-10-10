@@ -110,6 +110,13 @@ export namespace Generation {
     aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
 
     /**
+     * The callback URL of the generation, a POST request with Generation object will
+     * be sent to the callback URL when the generation is dreaming, completed, or
+     * failed
+     */
+    callback_url?: string;
+
+    /**
      * The keyframes of the generation
      */
     keyframes?: Request.Keyframes;
@@ -228,6 +235,13 @@ export interface GenerationCreateParams {
    * The aspect ratio of the generation
    */
   aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+  /**
+   * The callback URL of the generation, a POST request with Generation object will
+   * be sent to the callback URL when the generation is dreaming, completed, or
+   * failed
+   */
+  callback_url?: string;
 
   /**
    * The keyframes of the generation
