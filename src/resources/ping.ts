@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as PingAPI from './ping';
 
 export class Ping extends APIResource {
   /**
@@ -20,6 +19,6 @@ export interface PingCheckResponse {
   message?: string;
 }
 
-export namespace Ping {
-  export import PingCheckResponse = PingAPI.PingCheckResponse;
+export declare namespace Ping {
+  export { type PingCheckResponse as PingCheckResponse };
 }
