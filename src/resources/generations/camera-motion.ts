@@ -2,7 +2,6 @@
 
 import { APIResource } from '../../resource';
 import * as Core from '../../core';
-import * as CameraMotionAPI from './camera-motion';
 
 export class CameraMotion extends APIResource {
   /**
@@ -15,6 +14,6 @@ export class CameraMotion extends APIResource {
 
 export type CameraMotionListResponse = Array<string>;
 
-export namespace CameraMotion {
-  export import CameraMotionListResponse = CameraMotionAPI.CameraMotionListResponse;
+export declare namespace CameraMotion {
+  export { type CameraMotionListResponse as CameraMotionListResponse };
 }
