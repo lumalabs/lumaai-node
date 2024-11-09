@@ -3,8 +3,8 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as GenerationsAPI from './generations';
 import * as CameraMotionAPI from './camera-motion';
+import { CameraMotion, CameraMotionListResponse } from './camera-motion';
 
 export class Generations extends APIResource {
   cameraMotion: CameraMotionAPI.CameraMotion = new CameraMotionAPI.CameraMotion(this._client);
@@ -332,11 +332,15 @@ export interface GenerationListParams {
   offset?: number;
 }
 
-export namespace Generations {
-  export import Generation = GenerationsAPI.Generation;
-  export import GenerationListResponse = GenerationsAPI.GenerationListResponse;
-  export import GenerationCreateParams = GenerationsAPI.GenerationCreateParams;
-  export import GenerationListParams = GenerationsAPI.GenerationListParams;
-  export import CameraMotion = CameraMotionAPI.CameraMotion;
-  export import CameraMotionListResponse = CameraMotionAPI.CameraMotionListResponse;
+Generations.CameraMotion = CameraMotion;
+
+export declare namespace Generations {
+  export {
+    type Generation as Generation,
+    type GenerationListResponse as GenerationListResponse,
+    type GenerationCreateParams as GenerationCreateParams,
+    type GenerationListParams as GenerationListParams,
+  };
+
+  export { CameraMotion as CameraMotion, type CameraMotionListResponse as CameraMotionListResponse };
 }
