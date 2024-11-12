@@ -168,29 +168,9 @@ export class LumaAI extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export {
-  LumaAIError,
-  APIError,
-  APIConnectionError,
-  APIConnectionTimeoutError,
-  APIUserAbortError,
-  NotFoundError,
-  ConflictError,
-  RateLimitError,
-  BadRequestError,
-  AuthenticationError,
-  InternalServerError,
-  PermissionDeniedError,
-  UnprocessableEntityError,
-} from './error';
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
 LumaAI.Generations = Generations;
 LumaAI.Ping = Ping;
 LumaAI.Credits = Credits;
-
 export declare namespace LumaAI {
   export type RequestOptions = Core.RequestOptions;
 
@@ -206,5 +186,22 @@ export declare namespace LumaAI {
 
   export { Credits as Credits, type CreditGetResponse as CreditGetResponse };
 }
+
+export { toFile, fileFromPath } from 'lumaai/uploads';
+export {
+  LumaAIError,
+  APIError,
+  APIConnectionError,
+  APIConnectionTimeoutError,
+  APIUserAbortError,
+  NotFoundError,
+  ConflictError,
+  RateLimitError,
+  BadRequestError,
+  AuthenticationError,
+  InternalServerError,
+  PermissionDeniedError,
+  UnprocessableEntityError,
+} from 'lumaai/error';
 
 export default LumaAI;
