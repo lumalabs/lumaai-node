@@ -187,7 +187,7 @@ export declare namespace LumaAI {
   export { Credits as Credits, type CreditGetResponse as CreditGetResponse };
 }
 
-export { toFile, fileFromPath } from 'lumaai/uploads';
+export { toFile, fileFromPath } from './uploads';
 export {
   LumaAIError,
   APIError,
@@ -202,6 +202,6 @@ export {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} from 'lumaai/error';
+} from './error';
 
 export default LumaAI;
