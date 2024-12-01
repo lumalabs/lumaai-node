@@ -2,7 +2,6 @@
 
 import { APIResource } from '../resource';
 import * as Core from '../core';
-import * as CreditsAPI from './credits';
 
 export class Credits extends APIResource {
   /**
@@ -23,6 +22,6 @@ export interface CreditGetResponse {
   credit_balance: number;
 }
 
-export namespace Credits {
-  export import CreditGetResponse = CreditsAPI.CreditGetResponse;
+export declare namespace Credits {
+  export { type CreditGetResponse as CreditGetResponse };
 }

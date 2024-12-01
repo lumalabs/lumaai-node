@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.1.1 (2024-12-01)
+
+Full Changelog: [v1.1.0...v1.1.1](https://github.com/lumalabs/lumaai-node/compare/v1.1.0...v1.1.1)
+
+### Features
+
+* **internal:** make git install file structure match npm ([#45](https://github.com/lumalabs/lumaai-node/issues/45)) ([7c6debc](https://github.com/lumalabs/lumaai-node/commit/7c6debc3120163ac3c8878df6a5929b334fda45e))
+
+
+### Chores
+
+* rebuild project due to codegen change ([#38](https://github.com/lumalabs/lumaai-node/issues/38)) ([b3aa2e6](https://github.com/lumalabs/lumaai-node/commit/b3aa2e60742a76b28723dac096689ee3d7f773bc))
+* rebuild project due to codegen change ([#40](https://github.com/lumalabs/lumaai-node/issues/40)) ([491d090](https://github.com/lumalabs/lumaai-node/commit/491d090397f19bc3991b1d32cc8b82286cf98835))
+* rebuild project due to codegen change ([#41](https://github.com/lumalabs/lumaai-node/issues/41)) ([9a81cd6](https://github.com/lumalabs/lumaai-node/commit/9a81cd6b9c68824d01987b8f4fbac6e4cf6efdee))
+* rebuild project due to codegen change ([#42](https://github.com/lumalabs/lumaai-node/issues/42)) ([79b58de](https://github.com/lumalabs/lumaai-node/commit/79b58de6fa525153397b7e672ba58dbccb84b160))
+* remove redundant word in comment ([#44](https://github.com/lumalabs/lumaai-node/issues/44)) ([f724edc](https://github.com/lumalabs/lumaai-node/commit/f724edc1c384097aa803164926f29350684a35e9))
+
+
+### Documentation
+
+* remove suggestion to use `npm` call out ([#43](https://github.com/lumalabs/lumaai-node/issues/43)) ([2668cbd](https://github.com/lumalabs/lumaai-node/commit/2668cbd4d7ff1bff52412d09a15ac296e8ea2073))
+
 ## 1.1.0 (2024-10-08)
 
 Full Changelog: [v1.0.2...v1.1.0](https://github.com/lumalabs/lumaai-node/compare/v1.0.2...v1.1.0)

@@ -1,10 +1,19 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import * as Errors from './error';
-import * as Uploads from './uploads';
 import { type Agent } from './_shims/index';
 import * as Core from './core';
+import * as Errors from './error';
+import * as Uploads from './uploads';
 import * as API from './resources/index';
+import { CreditGetResponse, Credits } from './resources/credits';
+import { Ping, PingCheckResponse } from './resources/ping';
+import {
+  Generation,
+  GenerationCreateParams,
+  GenerationListParams,
+  GenerationListResponse,
+  Generations,
+} from './resources/generations/generations';
 
 export interface ClientOptions {
   /**
@@ -159,7 +168,27 @@ export class LumaAI extends Core.APIClient {
   static fileFromPath = Uploads.fileFromPath;
 }
 
-export const {
+LumaAI.Generations = Generations;
+LumaAI.Ping = Ping;
+LumaAI.Credits = Credits;
+export declare namespace LumaAI {
+  export type RequestOptions = Core.RequestOptions;
+
+  export {
+    Generations as Generations,
+    type Generation as Generation,
+    type GenerationListResponse as GenerationListResponse,
+    type GenerationCreateParams as GenerationCreateParams,
+    type GenerationListParams as GenerationListParams,
+  };
+
+  export { Ping as Ping, type PingCheckResponse as PingCheckResponse };
+
+  export { Credits as Credits, type CreditGetResponse as CreditGetResponse };
+}
+
+export { toFile, fileFromPath } from './uploads';
+export {
   LumaAIError,
   APIError,
   APIConnectionError,
@@ -173,25 +202,6 @@ export const {
   InternalServerError,
   PermissionDeniedError,
   UnprocessableEntityError,
-} = Errors;
-
-export import toFile = Uploads.toFile;
-export import fileFromPath = Uploads.fileFromPath;
-
-export namespace LumaAI {
-  export import RequestOptions = Core.RequestOptions;
-
-  export import Generations = API.Generations;
-  export import Generation = API.Generation;
-  export import GenerationListResponse = API.GenerationListResponse;
-  export import GenerationCreateParams = API.GenerationCreateParams;
-  export import GenerationListParams = API.GenerationListParams;
-
-  export import Ping = API.Ping;
-  export import PingCheckResponse = API.PingCheckResponse;
-
-  export import Credits = API.Credits;
-  export import CreditGetResponse = API.CreditGetResponse;
-}
+} from './error';
 
 export default LumaAI;
