@@ -22,6 +22,18 @@ Methods:
 
 - <code title="get /generations/camera_motion/list">client.generations.cameraMotion.<a href="./src/resources/generations/camera-motion.ts">list</a>() -> CameraMotionListResponse</code>
 
+## Image
+
+Methods:
+
+- <code title="post /generations/image">client.generations.image.<a href="./src/resources/generations/image.ts">create</a>({ ...params }) -> Generation</code>
+
+## Video
+
+Methods:
+
+- <code title="post /generations">client.generations.video.<a href="./src/resources/generations/video.ts">create</a>({ ...params }) -> Generation</code>
+
 # Ping
 
 Types:
