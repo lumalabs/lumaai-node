@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.0 (2024-12-02)
+
+Full Changelog: [v1.1.1...v1.2.0](https://github.com/lumalabs/lumaai-node/compare/v1.1.1...v1.2.0)
+
+### Features
+
+* **api:** api update ([#47](https://github.com/lumalabs/lumaai-node/issues/47)) ([8bbe489](https://github.com/lumalabs/lumaai-node/commit/8bbe489c2c24538432c0417e1feacbe5d345229e))
+
 ## 1.1.1 (2024-12-01)
 
 Full Changelog: [v1.1.0...v1.1.1](https://github.com/lumalabs/lumaai-node/compare/v1.1.0...v1.1.1)
