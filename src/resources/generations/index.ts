@@ -8,3 +8,5 @@ export {
   type GenerationCreateParams,
   type GenerationListParams,
 } from './generations';
+export { Image, type ImageCreateParams } from './image';
+export { Video, type VideoCreateParams } from './video';
