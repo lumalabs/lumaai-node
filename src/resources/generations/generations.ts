@@ -5,9 +5,15 @@ import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as CameraMotionAPI from './camera-motion';
 import { CameraMotion, CameraMotionListResponse } from './camera-motion';
+import * as ImageAPI from './image';
+import { Image, ImageCreateParams } from './image';
+import * as VideoAPI from './video';
+import { Video, VideoCreateParams } from './video';
 
 export class Generations extends APIResource {
   cameraMotion: CameraMotionAPI.CameraMotion = new CameraMotionAPI.CameraMotion(this._client);
+  image: ImageAPI.Image = new ImageAPI.Image(this._client);
+  video: VideoAPI.Video = new VideoAPI.Video(this._client);
 
   /**
    * Initiate a new generation with the provided prompt
@@ -74,19 +80,24 @@ export interface Generation {
   failure_reason?: string;
 
   /**
-   * The generation request object
+   * The type of the generation
    */
-  request?: Generation.Request;
+  generation_type?: 'video' | 'image';
+
+  /**
+   * The model used for the generation
+   */
+  model?: string;
+
+  /**
+   * The request of the generation
+   */
+  request?: Generation.GenerationRequest | Generation.ImageGenerationRequest;
 
   /**
    * The state of the generation
    */
   state?: 'queued' | 'dreaming' | 'completed' | 'failed';
-
-  /**
-   * The model version used for the generation eg. v1.6
-   */
-  version?: string;
 }
 
 export namespace Generation {
@@ -94,6 +105,11 @@ export namespace Generation {
    * The assets of the generation
    */
   export interface Assets {
+    /**
+     * The URL of the image
+     */
+    image?: string;
+
     /**
      * The URL of the video
      */
@@ -103,7 +119,7 @@ export namespace Generation {
   /**
    * The generation request object
    */
-  export interface Request {
+  export interface GenerationRequest {
     /**
      * The aspect ratio of the generation
      */
@@ -116,10 +132,12 @@ export namespace Generation {
      */
     callback_url?: string;
 
+    generation_type?: 'video';
+
     /**
      * The keyframes of the generation
      */
-    keyframes?: Request.Keyframes;
+    keyframes?: GenerationRequest.Keyframes;
 
     /**
      * Whether to loop the video
@@ -132,7 +150,7 @@ export namespace Generation {
     prompt?: string;
   }
 
-  export namespace Request {
+  export namespace GenerationRequest {
     /**
      * The keyframes of the generation
      */
@@ -198,6 +216,110 @@ export namespace Generation {
       }
     }
   }
+
+  /**
+   * The image generation request object
+   */
+  export interface ImageGenerationRequest {
+    /**
+     * The aspect ratio of the generation
+     */
+    aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+    /**
+     * The callback URL for the generation
+     */
+    callback_url?: string;
+
+    character_ref?: ImageGenerationRequest.CharacterRef;
+
+    generation_type?: 'image';
+
+    image_ref?: Array<ImageGenerationRequest.ImageRef>;
+
+    /**
+     * The model used for the generation
+     */
+    model?: 'photon-1' | 'photon-flash-1';
+
+    /**
+     * The modify image reference object
+     */
+    modify_image_ref?: ImageGenerationRequest.ModifyImageRef;
+
+    /**
+     * The prompt of the generation
+     */
+    prompt?: string;
+
+    style_ref?: Array<ImageGenerationRequest.StyleRef>;
+  }
+
+  export namespace ImageGenerationRequest {
+    export interface CharacterRef {
+      /**
+       * The image identity object
+       */
+      identity0?: CharacterRef.Identity0;
+    }
+
+    export namespace CharacterRef {
+      /**
+       * The image identity object
+       */
+      export interface Identity0 {
+        /**
+         * The URLs of the image identity
+         */
+        images?: Array<string>;
+      }
+    }
+
+    /**
+     * The image reference object
+     */
+    export interface ImageRef {
+      /**
+       * The URL of the image reference
+       */
+      url?: string;
+
+      /**
+       * The weight of the image reference
+       */
+      weight?: number;
+    }
+
+    /**
+     * The modify image reference object
+     */
+    export interface ModifyImageRef {
+      /**
+       * The URL of the image reference
+       */
+      url?: string;
+
+      /**
+       * The weight of the modify image reference
+       */
+      weight?: number;
+    }
+
+    /**
+     * The image reference object
+     */
+    export interface StyleRef {
+      /**
+       * The URL of the image reference
+       */
+      url?: string;
+
+      /**
+       * The weight of the image reference
+       */
+      weight?: number;
+    }
+  }
 }
 
 /**
@@ -242,6 +364,8 @@ export interface GenerationCreateParams {
    * failed
    */
   callback_url?: string;
+
+  generation_type?: 'video';
 
   /**
    * The keyframes of the generation
@@ -333,6 +457,8 @@ export interface GenerationListParams {
 }
 
 Generations.CameraMotion = CameraMotion;
+Generations.Image = Image;
+Generations.Video = Video;
 
 export declare namespace Generations {
   export {
@@ -343,4 +469,8 @@ export declare namespace Generations {
   };
 
   export { CameraMotion as CameraMotion, type CameraMotionListResponse as CameraMotionListResponse };
+
+  export { Image as Image, type ImageCreateParams as ImageCreateParams };
+
+  export { Video as Video, type VideoCreateParams as VideoCreateParams };
 }
