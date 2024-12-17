@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.2 (2024-12-17)
+
+Full Changelog: [v1.2.0...v1.2.2](https://github.com/lumalabs/lumaai-node/compare/v1.2.0...v1.2.2)
+
+### Chores
+
+* **internal:** bump cross-spawn to v7.0.6 ([#55](https://github.com/lumalabs/lumaai-node/issues/55)) ([bb1a77d](https://github.com/lumalabs/lumaai-node/commit/bb1a77dc758849327d412899b470d0ee87866590))
+* **internal:** codegen related update ([#57](https://github.com/lumalabs/lumaai-node/issues/57)) ([c897c09](https://github.com/lumalabs/lumaai-node/commit/c897c09b22ce819fc656360852c607af7163fbc4))
+* **internal:** update isAbsoluteURL ([#58](https://github.com/lumalabs/lumaai-node/issues/58)) ([d4200be](https://github.com/lumalabs/lumaai-node/commit/d4200be1757cda26cf1225cd2eb43af8edde7f72))
+
 ## 1.2.0 (2024-12-02)
 
 Full Changelog: [v1.1.1...v1.2.0](https://github.com/lumalabs/lumaai-node/compare/v1.1.1...v1.2.0)
