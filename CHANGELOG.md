@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.3 (2024-12-18)
+
+Full Changelog: [v1.2.2...v1.2.3](https://github.com/lumalabs/lumaai-node/compare/v1.2.2...v1.2.3)
+
+### Chores
+
+* **internal:** fix some typos ([#60](https://github.com/lumalabs/lumaai-node/issues/60)) ([a52380a](https://github.com/lumalabs/lumaai-node/commit/a52380a82c079e729c69e286065e5616888844ad))
+
 ## 1.2.2 (2024-12-17)
 
 Full Changelog: [v1.2.0...v1.2.2](https://github.com/lumalabs/lumaai-node/compare/v1.2.0...v1.2.2)
