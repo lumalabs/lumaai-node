@@ -180,7 +180,7 @@ describe('instantiate client', () => {
     expect(client.authToken).toBe('My Auth Token');
   });
 
-  test('with overriden environment variable arguments', () => {
+  test('with overridden environment variable arguments', () => {
     // set options via env var
     process.env['LUMAAI_API_KEY'] = 'another My Auth Token';
     const client = new LumaAI({ authToken: 'My Auth Token' });
