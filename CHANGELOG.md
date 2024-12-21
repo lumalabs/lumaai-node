@@ -1,5 +1,25 @@
 # Changelog
 
+## 1.2.3 (2024-12-21)
+
+Full Changelog: [v1.2.2...v1.2.3](https://github.com/lumalabs/lumaai-node/compare/v1.2.2...v1.2.3)
+
+### Bug Fixes
+
+* **client:** normalize method ([#62](https://github.com/lumalabs/lumaai-node/issues/62)) ([e9f5c4b](https://github.com/lumalabs/lumaai-node/commit/e9f5c4b2dd11d5e7185a4108f23421dd831c7d03))
+
+
+### Chores
+
+* **internal:** codegen related update ([#63](https://github.com/lumalabs/lumaai-node/issues/63)) ([a565b7f](https://github.com/lumalabs/lumaai-node/commit/a565b7fcda863a7633b8465f59fff11fe7318e76))
+* **internal:** codegen related update ([#64](https://github.com/lumalabs/lumaai-node/issues/64)) ([e396cea](https://github.com/lumalabs/lumaai-node/commit/e396cea85056d421da3eb255f6fa3fac1668ace7))
+* **internal:** fix some typos ([#60](https://github.com/lumalabs/lumaai-node/issues/60)) ([a52380a](https://github.com/lumalabs/lumaai-node/commit/a52380a82c079e729c69e286065e5616888844ad))
+
+
+### Documentation
+
+* minor formatting changes ([#65](https://github.com/lumalabs/lumaai-node/issues/65)) ([de69f73](https://github.com/lumalabs/lumaai-node/commit/de69f73e571dd0a7ec07f2db0f74a4d603615b34))
+
 ## 1.2.2 (2024-12-17)
 
 Full Changelog: [v1.2.0...v1.2.2](https://github.com/lumalabs/lumaai-node/compare/v1.2.0...v1.2.2)
