@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.2.3 (2025-01-22)
+
+Full Changelog: [v1.2.2...v1.2.3](https://github.com/lumalabs/lumaai-node/compare/v1.2.2...v1.2.3)
+
+### Bug Fixes
+
+* **client:** normalize method ([#62](https://github.com/lumalabs/lumaai-node/issues/62)) ([e9f5c4b](https://github.com/lumalabs/lumaai-node/commit/e9f5c4b2dd11d5e7185a4108f23421dd831c7d03))
+
+
+### Chores
+
+* **internal:** add test ([#69](https://github.com/lumalabs/lumaai-node/issues/69)) ([5770842](https://github.com/lumalabs/lumaai-node/commit/5770842521fae6d60689335d02f540e4254071b4))
+* **internal:** codegen related update ([#63](https://github.com/lumalabs/lumaai-node/issues/63)) ([a565b7f](https://github.com/lumalabs/lumaai-node/commit/a565b7fcda863a7633b8465f59fff11fe7318e76))
+* **internal:** codegen related update ([#64](https://github.com/lumalabs/lumaai-node/issues/64)) ([e396cea](https://github.com/lumalabs/lumaai-node/commit/e396cea85056d421da3eb255f6fa3fac1668ace7))
+* **internal:** codegen related update ([#66](https://github.com/lumalabs/lumaai-node/issues/66)) ([3438c44](https://github.com/lumalabs/lumaai-node/commit/3438c4409ad4ccdad45ebd8b2af278717c8d868f))
+* **internal:** codegen related update ([#67](https://github.com/lumalabs/lumaai-node/issues/67)) ([adae028](https://github.com/lumalabs/lumaai-node/commit/adae028b4b8fe0bf82b6dfe43a903cb6b3a5daea))
+* **internal:** codegen related update ([#68](https://github.com/lumalabs/lumaai-node/issues/68)) ([1886303](https://github.com/lumalabs/lumaai-node/commit/1886303896722886d2e261985b51dffe72b96f0e))
+* **internal:** fix some typos ([#60](https://github.com/lumalabs/lumaai-node/issues/60)) ([a52380a](https://github.com/lumalabs/lumaai-node/commit/a52380a82c079e729c69e286065e5616888844ad))
+
+
+### Documentation
+
+* minor formatting changes ([#65](https://github.com/lumalabs/lumaai-node/issues/65)) ([de69f73](https://github.com/lumalabs/lumaai-node/commit/de69f73e571dd0a7ec07f2db0f74a4d603615b34))
+
 ## 1.2.2 (2024-12-17)
 
 Full Changelog: [v1.2.0...v1.2.2](https://github.com/lumalabs/lumaai-node/compare/v1.2.0...v1.2.2)
