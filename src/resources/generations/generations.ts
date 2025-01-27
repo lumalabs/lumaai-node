@@ -132,6 +132,11 @@ export namespace Generation {
      */
     callback_url?: string;
 
+    /**
+     * The duration of the generation
+     */
+    duration?: '5s' | '9s' | (string & {});
+
     generation_type?: 'video';
 
     /**
@@ -145,9 +150,19 @@ export namespace Generation {
     loop?: boolean;
 
     /**
+     * The model used for the generation
+     */
+    model?: 'ray-1-6' | 'ray-2';
+
+    /**
      * The prompt of the generation
      */
     prompt?: string;
+
+    /**
+     * The resolution of the generation
+     */
+    resolution?: '540p' | '720p' | (string & {});
   }
 
   export namespace GenerationRequest {
@@ -365,6 +380,11 @@ export interface GenerationCreateParams {
    */
   callback_url?: string;
 
+  /**
+   * The duration of the generation
+   */
+  duration?: '5s' | '9s' | (string & {});
+
   generation_type?: 'video';
 
   /**
@@ -378,9 +398,19 @@ export interface GenerationCreateParams {
   loop?: boolean;
 
   /**
+   * The model used for the generation
+   */
+  model?: 'ray-1-6' | 'ray-2';
+
+  /**
    * The prompt of the generation
    */
   prompt?: string;
+
+  /**
+   * The resolution of the generation
+   */
+  resolution?: '540p' | '720p' | (string & {});
 }
 
 export namespace GenerationCreateParams {
