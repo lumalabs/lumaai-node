@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.0 (2025-02-05)
+
+Full Changelog: [v1.3.0...v1.4.0](https://github.com/lumalabs/lumaai-node/compare/v1.3.0...v1.4.0)
+
+### Features
+
+* **client:** send `X-Stainless-Timeout` header ([#74](https://github.com/lumalabs/lumaai-node/issues/74)) ([97732ca](https://github.com/lumalabs/lumaai-node/commit/97732ca2e514ea648a31d74d8045b46e253f642c))
+
 ## 1.3.0 (2025-01-27)
 
 Full Changelog: [v1.2.3...v1.3.0](https://github.com/lumalabs/lumaai-node/compare/v1.2.3...v1.3.0)
