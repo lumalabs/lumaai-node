@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.4.1 (2025-02-14)
+
+Full Changelog: [v1.4.0...v1.4.1](https://github.com/lumalabs/lumaai-node/compare/v1.4.0...v1.4.1)
+
+### Bug Fixes
+
+* **client:** fix export map for index exports ([#77](https://github.com/lumalabs/lumaai-node/issues/77)) ([49dd675](https://github.com/lumalabs/lumaai-node/commit/49dd675e0436a93caa546ac752f34f2c5f9884fd))
+
 ## 1.4.0 (2025-02-05)
 
 Full Changelog: [v1.3.0...v1.4.0](https://github.com/lumalabs/lumaai-node/compare/v1.3.0...v1.4.0)
