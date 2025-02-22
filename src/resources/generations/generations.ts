@@ -53,6 +53,17 @@ export class Generations extends APIResource {
   get(id: string, options?: Core.RequestOptions): Core.APIPromise<Generation> {
     return this._client.get(`/generations/${id}`, options);
   }
+
+  /**
+   * Upscale a generation by its ID
+   */
+  upscale(
+    id: string,
+    body: GenerationUpscaleParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<Generation> {
+    return this._client.post(`/generations/${id}/upscale`, { body, ...options });
+  }
 }
 
 /**
@@ -92,7 +103,10 @@ export interface Generation {
   /**
    * The request of the generation
    */
-  request?: Generation.GenerationRequest | Generation.ImageGenerationRequest;
+  request?:
+    | Generation.GenerationRequest
+    | Generation.ImageGenerationRequest
+    | Generation.UpscaleVideoGenerationRequest;
 
   /**
    * The state of the generation
@@ -109,6 +123,11 @@ export namespace Generation {
      * The URL of the image
      */
     image?: string;
+
+    /**
+     * The URL of the progress video
+     */
+    progress_video?: string;
 
     /**
      * The URL of the video
@@ -162,7 +181,7 @@ export namespace Generation {
     /**
      * The resolution of the generation
      */
-    resolution?: '540p' | '720p' | (string & {});
+    resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
   }
 
   export namespace GenerationRequest {
@@ -335,6 +354,23 @@ export namespace Generation {
       weight?: number;
     }
   }
+
+  /**
+   * The upscale generation request object
+   */
+  export interface UpscaleVideoGenerationRequest {
+    /**
+     * The callback URL for the upscale
+     */
+    callback_url?: string;
+
+    generation_type?: 'upscale_video';
+
+    /**
+     * The resolution of the upscale
+     */
+    resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
+  }
 }
 
 /**
@@ -410,7 +446,7 @@ export interface GenerationCreateParams {
   /**
    * The resolution of the generation
    */
-  resolution?: '540p' | '720p' | (string & {});
+  resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
 }
 
 export namespace GenerationCreateParams {
@@ -486,6 +522,20 @@ export interface GenerationListParams {
   offset?: number;
 }
 
+export interface GenerationUpscaleParams {
+  /**
+   * The callback URL for the upscale
+   */
+  callback_url?: string;
+
+  generation_type?: 'upscale_video';
+
+  /**
+   * The resolution of the upscale
+   */
+  resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
+}
+
 Generations.CameraMotion = CameraMotion;
 Generations.Image = Image;
 Generations.Video = Video;
@@ -496,6 +546,7 @@ export declare namespace Generations {
     type GenerationListResponse as GenerationListResponse,
     type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
+    type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
   export { CameraMotion as CameraMotion, type CameraMotionListResponse as CameraMotionListResponse };

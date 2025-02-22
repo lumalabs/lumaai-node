@@ -12,6 +12,7 @@ import {
   GenerationCreateParams,
   GenerationListParams,
   GenerationListResponse,
+  GenerationUpscaleParams,
   Generations,
 } from './resources/generations/generations';
 
@@ -180,6 +181,7 @@ export declare namespace LumaAI {
     type GenerationListResponse as GenerationListResponse,
     type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
+    type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
   export { Ping as Ping, type PingCheckResponse as PingCheckResponse };
