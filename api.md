@@ -11,6 +11,7 @@ Methods:
 - <code title="get /generations">client.generations.<a href="./src/resources/generations/generations.ts">list</a>({ ...params }) -> GenerationListResponse</code>
 - <code title="delete /generations/{id}">client.generations.<a href="./src/resources/generations/generations.ts">delete</a>(id) -> void</code>
 - <code title="get /generations/{id}">client.generations.<a href="./src/resources/generations/generations.ts">get</a>(id) -> Generation</code>
+- <code title="post /generations/{id}/upscale">client.generations.<a href="./src/resources/generations/generations.ts">upscale</a>(id, { ...params }) -> Generation</code>
 
 ## CameraMotion
 
