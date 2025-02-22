@@ -56,7 +56,7 @@ export interface VideoCreateParams {
   /**
    * The resolution of the generation
    */
-  resolution?: '540p' | '720p' | (string & {});
+  resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
 }
 
 export namespace VideoCreateParams {
