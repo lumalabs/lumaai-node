@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.1 (2025-02-22)
+
+Full Changelog: [v1.5.0...v1.5.1](https://github.com/lumalabs/lumaai-node/compare/v1.5.0...v1.5.1)
+
+### Chores
+
+* **internal:** fix devcontainers setup ([#83](https://github.com/lumalabs/lumaai-node/issues/83)) ([c2eaa52](https://github.com/lumalabs/lumaai-node/commit/c2eaa5264acdfe082db688c5bd79f93555de30ae))
+
 ## 1.5.0 (2025-02-22)
 
 Full Changelog: [v1.4.1...v1.5.0](https://github.com/lumalabs/lumaai-node/compare/v1.4.1...v1.5.0)
