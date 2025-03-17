@@ -46,7 +46,7 @@ export interface VideoCreateParams {
   /**
    * The model used for the generation
    */
-  model?: 'ray-1-6' | 'ray-2';
+  model?: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
 
   /**
    * The prompt of the generation
