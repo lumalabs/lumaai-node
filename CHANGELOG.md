@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.5.2 (2025-03-17)
+
+Full Changelog: [v1.5.1...v1.5.2](https://github.com/lumalabs/lumaai-node/compare/v1.5.1...v1.5.2)
+
+### Features
+
+* add SKIP_BREW env var to ./scripts/bootstrap ([#87](https://github.com/lumalabs/lumaai-node/issues/87)) ([3a37d85](https://github.com/lumalabs/lumaai-node/commit/3a37d853e9e5f20a035f1d695c2bac70f9b86d79))
+* **client:** accept RFC6838 JSON content types ([#89](https://github.com/lumalabs/lumaai-node/issues/89)) ([0980a7d](https://github.com/lumalabs/lumaai-node/commit/0980a7d109a6239920b5b9c31ca9f408bc176e9a))
+
+
+### Bug Fixes
+
+* **exports:** ensure resource imports don't require /index ([#91](https://github.com/lumalabs/lumaai-node/issues/91)) ([16677fe](https://github.com/lumalabs/lumaai-node/commit/16677fe48620bedfcdd7db303b5fde40ce6fcc47))
+
+
+### Chores
+
+* **internal:** remove extra empty newlines ([#90](https://github.com/lumalabs/lumaai-node/issues/90)) ([d6c962d](https://github.com/lumalabs/lumaai-node/commit/d6c962d79c5eeb87258d1cd812c586df5a7c221f))
+
 ## 1.5.1 (2025-02-22)
 
 Full Changelog: [v1.5.0...v1.5.1](https://github.com/lumalabs/lumaai-node/compare/v1.5.0...v1.5.1)
