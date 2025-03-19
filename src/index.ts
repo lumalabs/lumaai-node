@@ -9,6 +9,7 @@ import { CreditGetResponse, Credits } from './resources/credits';
 import { Ping, PingCheckResponse } from './resources/ping';
 import {
   Generation,
+  GenerationAudioParams,
   GenerationCreateParams,
   GenerationListParams,
   GenerationListResponse,
@@ -181,6 +182,7 @@ export declare namespace LumaAI {
     type GenerationListResponse as GenerationListResponse,
     type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
+    type GenerationAudioParams as GenerationAudioParams,
     type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
