@@ -7,6 +7,7 @@ export {
   type GenerationListResponse,
   type GenerationCreateParams,
   type GenerationListParams,
+  type GenerationAudioParams,
   type GenerationUpscaleParams,
 } from './generations';
 export { Image, type ImageCreateParams } from './image';
