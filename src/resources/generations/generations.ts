@@ -48,6 +48,13 @@ export class Generations extends APIResource {
   }
 
   /**
+   * Add audio to a generation by its ID
+   */
+  audio(id: string, body: GenerationAudioParams, options?: Core.RequestOptions): Core.APIPromise<Generation> {
+    return this._client.post(`/generations/${id}/audio`, { body, ...options });
+  }
+
+  /**
    * Retrieve details of a specific generation by its ID
    */
   get(id: string, options?: Core.RequestOptions): Core.APIPromise<Generation> {
@@ -106,7 +113,8 @@ export interface Generation {
   request?:
     | Generation.GenerationRequest
     | Generation.ImageGenerationRequest
-    | Generation.UpscaleVideoGenerationRequest;
+    | Generation.UpscaleVideoGenerationRequest
+    | Generation.AudioGenerationRequest;
 
   /**
    * The state of the generation
@@ -371,6 +379,28 @@ export namespace Generation {
      */
     resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
   }
+
+  /**
+   * The audio generation request object
+   */
+  export interface AudioGenerationRequest {
+    /**
+     * The callback URL for the audio
+     */
+    callback_url?: string;
+
+    generation_type?: 'add_audio';
+
+    /**
+     * The negative prompt of the audio
+     */
+    negative_prompt?: string;
+
+    /**
+     * The prompt of the audio
+     */
+    prompt?: string;
+  }
 }
 
 /**
@@ -522,6 +552,25 @@ export interface GenerationListParams {
   offset?: number;
 }
 
+export interface GenerationAudioParams {
+  /**
+   * The callback URL for the audio
+   */
+  callback_url?: string;
+
+  generation_type?: 'add_audio';
+
+  /**
+   * The negative prompt of the audio
+   */
+  negative_prompt?: string;
+
+  /**
+   * The prompt of the audio
+   */
+  prompt?: string;
+}
+
 export interface GenerationUpscaleParams {
   /**
    * The callback URL for the upscale
@@ -546,6 +595,7 @@ export declare namespace Generations {
     type GenerationListResponse as GenerationListResponse,
     type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
+    type GenerationAudioParams as GenerationAudioParams,
     type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
