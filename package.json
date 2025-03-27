@@ -1,6 +1,6 @@
 {
   "name": "lumaai",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "The official TypeScript library for the LumaAI API",
   "author": "LumaAI <support+api@lumalabs.ai>",
   "types": "dist/index.d.ts",
