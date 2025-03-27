@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.1 (2025-03-27)
+
+Full Changelog: [v1.7.0...v1.7.1](https://github.com/lumalabs/lumaai-node/compare/v1.7.0...v1.7.1)
+
+### Bug Fixes
+
+* avoid type error in certain environments ([#102](https://github.com/lumalabs/lumaai-node/issues/102)) ([ab5c2cb](https://github.com/lumalabs/lumaai-node/commit/ab5c2cb59b2c70e27c7522772e8f543c1492ccbe))
+
+
+### Chores
+
+* **exports:** cleaner resource index imports ([#99](https://github.com/lumalabs/lumaai-node/issues/99)) ([22c1a45](https://github.com/lumalabs/lumaai-node/commit/22c1a455807a7af2c24a421dc51a39c51ff24180))
+* **exports:** stop using path fallbacks ([#101](https://github.com/lumalabs/lumaai-node/issues/101)) ([471d276](https://github.com/lumalabs/lumaai-node/commit/471d276be2ad2ad59cd31a0026e91f89d669f504))
+
 ## 1.7.0 (2025-03-19)
 
 Full Changelog: [v1.6.0...v1.7.0](https://github.com/lumalabs/lumaai-node/compare/v1.6.0...v1.7.0)
