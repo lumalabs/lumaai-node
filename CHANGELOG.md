@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.2 (2025-03-28)
+
+Full Changelog: [v1.7.1...v1.7.2](https://github.com/lumalabs/lumaai-node/compare/v1.7.1...v1.7.2)
+
+### Bug Fixes
+
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#104](https://github.com/lumalabs/lumaai-node/issues/104)) ([8f853dd](https://github.com/lumalabs/lumaai-node/commit/8f853dd8471237b847b2bc92aa0a4c5a39ebf1a8))
+
 ## 1.7.1 (2025-03-27)
 
 Full Changelog: [v1.7.0...v1.7.1](https://github.com/lumalabs/lumaai-node/compare/v1.7.0...v1.7.1)
