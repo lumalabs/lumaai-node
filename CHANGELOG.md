@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.7.2 (2025-04-04)
+
+Full Changelog: [v1.7.1...v1.7.2](https://github.com/lumalabs/lumaai-node/compare/v1.7.1...v1.7.2)
+
+### Bug Fixes
+
+* **api:** improve type resolution when importing as a package ([#109](https://github.com/lumalabs/lumaai-node/issues/109)) ([019d3a9](https://github.com/lumalabs/lumaai-node/commit/019d3a9b0507cc9630bc5e4dec0f9033da4408bb))
+* **client:** send `X-Stainless-Timeout` in seconds ([#107](https://github.com/lumalabs/lumaai-node/issues/107)) ([01c1441](https://github.com/lumalabs/lumaai-node/commit/01c1441a0f1445fe2a53d0879b3c4fce16f48918))
+* **internal:** work around https://github.com/vercel/next.js/issues/76881 ([#104](https://github.com/lumalabs/lumaai-node/issues/104)) ([8f853dd](https://github.com/lumalabs/lumaai-node/commit/8f853dd8471237b847b2bc92aa0a4c5a39ebf1a8))
+
+
+### Chores
+
+* **internal:** add aliases for Record and Array ([#108](https://github.com/lumalabs/lumaai-node/issues/108)) ([6eba380](https://github.com/lumalabs/lumaai-node/commit/6eba38067c001022a6c1eaebbd5d9df1de1e937a))
+
 ## 1.7.1 (2025-03-27)
 
 Full Changelog: [v1.7.0...v1.7.1](https://github.com/lumalabs/lumaai-node/compare/v1.7.0...v1.7.1)
