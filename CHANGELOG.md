@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.7.3 (2025-04-10)
+
+Full Changelog: [v1.7.2...v1.7.3](https://github.com/lumalabs/lumaai-node/compare/v1.7.2...v1.7.3)
+
+### Bug Fixes
+
+* **mcp:** remove unused tools.ts ([#111](https://github.com/lumalabs/lumaai-node/issues/111)) ([7735b57](https://github.com/lumalabs/lumaai-node/commit/7735b5757a3d49e304e33f66cbf3b929a6f9f5f5))
+
+
+### Chores
+
+* **internal:** reduce CI branch coverage ([9b0b3fe](https://github.com/lumalabs/lumaai-node/commit/9b0b3fe28aa8a7f6a6355ef3cecf50400208849d))
+* **internal:** upload builds and expand CI branch coverage ([b38336a](https://github.com/lumalabs/lumaai-node/commit/b38336ac1a21faa12133030c16ac38122cc13a5c))
+
 ## 1.7.2 (2025-04-04)
 
 Full Changelog: [v1.7.1...v1.7.2](https://github.com/lumalabs/lumaai-node/compare/v1.7.1...v1.7.2)
