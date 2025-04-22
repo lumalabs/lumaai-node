@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.7.4 (2025-04-15)
+
+Full Changelog: [v1.7.3...v1.7.4](https://github.com/lumalabs/lumaai-node/compare/v1.7.3...v1.7.4)
+
+### Chores
+
+* **client:** minor internal fixes ([5ad3bcd](https://github.com/lumalabs/lumaai-node/commit/5ad3bcdcd3206ce295d43aa540f1a23ae492ad86))
+
 ## 1.7.3 (2025-04-10)
 
 Full Changelog: [v1.7.2...v1.7.3](https://github.com/lumalabs/lumaai-node/compare/v1.7.2...v1.7.3)
