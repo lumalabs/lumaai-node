@@ -16,6 +16,14 @@ Methods:
 
 ## Concepts
 
+Types:
+
+- <code><a href="./src/resources/generations/concepts.ts">ConceptListResponse</a></code>
+
+Methods:
+
+- <code title="get /generations/concepts/list">client.generations.concepts.<a href="./src/resources/generations/concepts.ts">list</a>() -> ConceptListResponse</code>
+
 ## Image
 
 Methods:

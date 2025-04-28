@@ -4,7 +4,7 @@ import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
 import * as ConceptsAPI from './concepts';
-import { Concepts } from './concepts';
+import { ConceptListResponse, Concepts } from './concepts';
 import * as ImageAPI from './image';
 import { Image, ImageCreateParams } from './image';
 import * as VideoAPI from './video';
@@ -639,7 +639,7 @@ export declare namespace Generations {
     type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
-  export { Concepts as Concepts };
+  export { Concepts as Concepts, type ConceptListResponse as ConceptListResponse };
 
   export { Image as Image, type ImageCreateParams as ImageCreateParams };
 
