@@ -14,15 +14,7 @@ Methods:
 - <code title="get /generations/{id}">client.generations.<a href="./src/resources/generations/generations.ts">get</a>(id) -> Generation</code>
 - <code title="post /generations/{id}/upscale">client.generations.<a href="./src/resources/generations/generations.ts">upscale</a>(id, { ...params }) -> Generation</code>
 
-## CameraMotion
-
-Types:
-
-- <code><a href="./src/resources/generations/camera-motion.ts">CameraMotionListResponse</a></code>
-
-Methods:
-
-- <code title="get /generations/camera_motion/list">client.generations.cameraMotion.<a href="./src/resources/generations/camera-motion.ts">list</a>() -> CameraMotionListResponse</code>
+## Concepts
 
 ## Image
 
