@@ -27,6 +27,11 @@ export interface VideoCreateParams {
   callback_url?: string;
 
   /**
+   * The concepts of the generation
+   */
+  concepts?: Array<VideoCreateParams.Concept>;
+
+  /**
    * The duration of the generation
    */
   duration?: '5s' | '9s' | (string & {});
@@ -60,6 +65,16 @@ export interface VideoCreateParams {
 }
 
 export namespace VideoCreateParams {
+  /**
+   * The concept object
+   */
+  export interface Concept {
+    /**
+     * The key of the concept
+     */
+    key: string;
+  }
+
   /**
    * The keyframes of the generation
    */

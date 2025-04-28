@@ -3,15 +3,15 @@
 import { APIResource } from '../../resource';
 import { isRequestOptions } from '../../core';
 import * as Core from '../../core';
-import * as CameraMotionAPI from './camera-motion';
-import { CameraMotion, CameraMotionListResponse } from './camera-motion';
+import * as ConceptsAPI from './concepts';
+import { Concepts } from './concepts';
 import * as ImageAPI from './image';
 import { Image, ImageCreateParams } from './image';
 import * as VideoAPI from './video';
 import { Video, VideoCreateParams } from './video';
 
 export class Generations extends APIResource {
-  cameraMotion: CameraMotionAPI.CameraMotion = new CameraMotionAPI.CameraMotion(this._client);
+  concepts: ConceptsAPI.Concepts = new ConceptsAPI.Concepts(this._client);
   image: ImageAPI.Image = new ImageAPI.Image(this._client);
   video: VideoAPI.Video = new VideoAPI.Video(this._client);
 
@@ -160,6 +160,11 @@ export namespace Generation {
     callback_url?: string;
 
     /**
+     * The concepts of the generation
+     */
+    concepts?: Array<GenerationRequest.Concept>;
+
+    /**
      * The duration of the generation
      */
     duration?: '5s' | '9s' | (string & {});
@@ -193,6 +198,16 @@ export namespace Generation {
   }
 
   export namespace GenerationRequest {
+    /**
+     * The concept object
+     */
+    export interface Concept {
+      /**
+       * The key of the concept
+       */
+      key: string;
+    }
+
     /**
      * The keyframes of the generation
      */
@@ -295,6 +310,16 @@ export namespace Generation {
     prompt?: string;
 
     style_ref?: Array<ImageGenerationRequest.StyleRef>;
+
+    /**
+     * Create image in synchronous mode and return complated image
+     */
+    sync?: boolean;
+
+    /**
+     * The timeout for the synchronous image generation
+     */
+    sync_timeout?: number;
   }
 
   export namespace ImageGenerationRequest {
@@ -447,6 +472,11 @@ export interface GenerationCreateParams {
   callback_url?: string;
 
   /**
+   * The concepts of the generation
+   */
+  concepts?: Array<GenerationCreateParams.Concept>;
+
+  /**
    * The duration of the generation
    */
   duration?: '5s' | '9s' | (string & {});
@@ -480,6 +510,16 @@ export interface GenerationCreateParams {
 }
 
 export namespace GenerationCreateParams {
+  /**
+   * The concept object
+   */
+  export interface Concept {
+    /**
+     * The key of the concept
+     */
+    key: string;
+  }
+
   /**
    * The keyframes of the generation
    */
@@ -585,7 +625,7 @@ export interface GenerationUpscaleParams {
   resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
 }
 
-Generations.CameraMotion = CameraMotion;
+Generations.Concepts = Concepts;
 Generations.Image = Image;
 Generations.Video = Video;
 
@@ -599,7 +639,7 @@ export declare namespace Generations {
     type GenerationUpscaleParams as GenerationUpscaleParams,
   };
 
-  export { CameraMotion as CameraMotion, type CameraMotionListResponse as CameraMotionListResponse };
+  export { Concepts as Concepts };
 
   export { Image as Image, type ImageCreateParams as ImageCreateParams };
 

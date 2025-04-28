@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.8.0 (2025-04-28)
+
+Full Changelog: [v1.7.4...v1.8.0](https://github.com/lumalabs/lumaai-node/compare/v1.7.4...v1.8.0)
+
+### Features
+
+* **api:** api update ([6a5526f](https://github.com/lumalabs/lumaai-node/commit/6a5526faea442741d66d3cf8bdc4f65f46bc5eb4))
+
+
+### Chores
+
+* **ci:** add timeout thresholds for CI jobs ([5a7ee06](https://github.com/lumalabs/lumaai-node/commit/5a7ee06c77b37ead47366ac55921556a910d0306))
+* **ci:** only use depot for staging repos ([af6abac](https://github.com/lumalabs/lumaai-node/commit/af6abac7554b973f35af5e50d1950dd9305447ec))
+* **internal:** codegen related update ([e378eda](https://github.com/lumalabs/lumaai-node/commit/e378eda576f538dc4eafe3dee085a51d0bc45a19))
+
 ## 1.7.4 (2025-04-15)
 
 Full Changelog: [v1.7.3...v1.7.4](https://github.com/lumalabs/lumaai-node/compare/v1.7.3...v1.7.4)
