@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { Concepts } from './concepts';
+export { Concepts, type ConceptListResponse } from './concepts';
 export {
   Generations,
   type Generation,
