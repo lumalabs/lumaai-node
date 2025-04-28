@@ -46,6 +46,16 @@ export interface ImageCreateParams {
   prompt?: string;
 
   style_ref?: Array<ImageCreateParams.StyleRef>;
+
+  /**
+   * Create image in synchronous mode and return complated image
+   */
+  sync?: boolean;
+
+  /**
+   * The timeout for the synchronous image generation
+   */
+  sync_timeout?: number;
 }
 
 export namespace ImageCreateParams {

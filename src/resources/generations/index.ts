@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-export { CameraMotion, type CameraMotionListResponse } from './camera-motion';
+export { Concepts } from './concepts';
 export {
   Generations,
   type Generation,
