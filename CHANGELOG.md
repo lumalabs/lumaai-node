@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.8.2 (2025-04-30)
+
+Full Changelog: [v1.8.1...v1.8.2](https://github.com/lumalabs/lumaai-node/compare/v1.8.1...v1.8.2)
+
+### Features
+
+* **api:** api update ([4bd70c8](https://github.com/lumalabs/lumaai-node/commit/4bd70c83fc49cd2409b1f4c0c7dabb25deb2b17a))
+
 ## 1.8.1 (2025-04-28)
 
 Full Changelog: [v1.8.0...v1.8.1](https://github.com/lumalabs/lumaai-node/compare/v1.8.0...v1.8.1)

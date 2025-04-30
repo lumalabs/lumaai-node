@@ -26,6 +26,11 @@ export interface ImageCreateParams {
 
   character_ref?: ImageCreateParams.CharacterRef;
 
+  /**
+   * The format of the image
+   */
+  format?: 'jpg' | 'png';
+
   generation_type?: 'image';
 
   image_ref?: Array<ImageCreateParams.ImageRef>;
