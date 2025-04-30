@@ -290,6 +290,11 @@ export namespace Generation {
 
     character_ref?: ImageGenerationRequest.CharacterRef;
 
+    /**
+     * The format of the image
+     */
+    format?: 'jpg' | 'png';
+
     generation_type?: 'image';
 
     image_ref?: Array<ImageGenerationRequest.ImageRef>;
