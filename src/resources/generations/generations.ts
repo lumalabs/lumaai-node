@@ -17,6 +17,25 @@ export class Generations extends APIResource {
 
   /**
    * Initiate a new generation with the provided prompt
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.create({
+   *   aspect_ratio: '16:9',
+   *   keyframes: {
+   *     frame0: {
+   *       type: 'image',
+   *       url: 'https://example.com/image.jpg',
+   *     },
+   *     frame1: {
+   *       type: 'generation',
+   *       id: '123e4567-e89b-12d3-a456-426614174000',
+   *     },
+   *   },
+   *   loop: true,
+   *   prompt: 'A serene lake surrounded by mountains at sunset',
+   * });
+   * ```
    */
   create(body: GenerationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Generation> {
     return this._client.post('/generations', { body, ...options });
@@ -24,6 +43,11 @@ export class Generations extends APIResource {
 
   /**
    * Retrieve a list of generations with optional filtering and sorting
+   *
+   * @example
+   * ```ts
+   * const generations = await client.generations.list();
+   * ```
    */
   list(query?: GenerationListParams, options?: Core.RequestOptions): Core.APIPromise<GenerationListResponse>;
   list(options?: Core.RequestOptions): Core.APIPromise<GenerationListResponse>;
@@ -39,6 +63,11 @@ export class Generations extends APIResource {
 
   /**
    * Remove a specific generation by its ID
+   *
+   * @example
+   * ```ts
+   * await client.generations.delete('id');
+   * ```
    */
   delete(id: string, options?: Core.RequestOptions): Core.APIPromise<void> {
     return this._client.delete(`/generations/${id}`, {
@@ -49,6 +78,11 @@ export class Generations extends APIResource {
 
   /**
    * Add audio to a generation by its ID
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.audio('id');
+   * ```
    */
   audio(id: string, body: GenerationAudioParams, options?: Core.RequestOptions): Core.APIPromise<Generation> {
     return this._client.post(`/generations/${id}/audio`, { body, ...options });
@@ -56,6 +90,11 @@ export class Generations extends APIResource {
 
   /**
    * Retrieve details of a specific generation by its ID
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.get('id');
+   * ```
    */
   get(id: string, options?: Core.RequestOptions): Core.APIPromise<Generation> {
     return this._client.get(`/generations/${id}`, options);
@@ -63,6 +102,11 @@ export class Generations extends APIResource {
 
   /**
    * Upscale a generation by its ID
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.upscale('id');
+   * ```
    */
   upscale(
     id: string,

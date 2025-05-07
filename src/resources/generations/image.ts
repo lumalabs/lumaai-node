@@ -7,6 +7,11 @@ import * as GenerationsAPI from './generations';
 export class Image extends APIResource {
   /**
    * Generate an image with the provided prompt
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.image.create();
+   * ```
    */
   create(body: ImageCreateParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
     return this._client.post('/generations/image', { body, ...options });
