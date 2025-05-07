@@ -6,6 +6,11 @@ import * as Core from '../core';
 export class Ping extends APIResource {
   /**
    * Check if the API is running
+   *
+   * @example
+   * ```ts
+   * const response = await client.ping.check();
+   * ```
    */
   check(options?: Core.RequestOptions): Core.APIPromise<PingCheckResponse> {
     return this._client.get('/ping', options);
