@@ -10,7 +10,9 @@ export class Image extends APIResource {
    *
    * @example
    * ```ts
-   * const generation = await client.generations.image.create();
+   * const generation = await client.generations.image.create({
+   *   model: 'photon-1',
+   * });
    * ```
    */
   create(body: ImageCreateParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
@@ -19,6 +21,11 @@ export class Image extends APIResource {
 }
 
 export interface ImageCreateParams {
+  /**
+   * The model used for the generation
+   */
+  model: 'photon-1' | 'photon-flash-1';
+
   /**
    * The aspect ratio of the generation
    */
@@ -39,11 +46,6 @@ export interface ImageCreateParams {
   generation_type?: 'image';
 
   image_ref?: Array<ImageCreateParams.ImageRef>;
-
-  /**
-   * The model used for the generation
-   */
-  model?: 'photon-1' | 'photon-flash-1';
 
   /**
    * The modify image reference object

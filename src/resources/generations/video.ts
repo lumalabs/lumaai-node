@@ -11,6 +11,7 @@ export class Video extends APIResource {
    * @example
    * ```ts
    * const generation = await client.generations.video.create({
+   *   model: 'ray-1-6',
    *   aspect_ratio: '16:9',
    *   keyframes: {
    *     frame0: {
@@ -33,6 +34,11 @@ export class Video extends APIResource {
 }
 
 export interface VideoCreateParams {
+  /**
+   * The model used for the generation
+   */
+  model: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
+
   /**
    * The aspect ratio of the generation
    */
@@ -66,11 +72,6 @@ export interface VideoCreateParams {
    * Whether to loop the video
    */
   loop?: boolean;
-
-  /**
-   * The model used for the generation
-   */
-  model?: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
 
   /**
    * The prompt of the generation
