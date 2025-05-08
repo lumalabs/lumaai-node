@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.8.3 (2025-05-07)
+
+Full Changelog: [v1.8.2...v1.8.3](https://github.com/lumalabs/lumaai-node/compare/v1.8.2...v1.8.3)
+
+### Chores
+
+* **ci:** bump node version for release workflows ([0e58ce8](https://github.com/lumalabs/lumaai-node/commit/0e58ce8c9723fd1a29363d8bd0bba15182d78749))
+
+
+### Documentation
+
+* add examples to tsdocs ([d99f1ef](https://github.com/lumalabs/lumaai-node/commit/d99f1ef72da6aec7b5646af1430e5a5e51377885))
+* **readme:** fix typo ([261cf6f](https://github.com/lumalabs/lumaai-node/commit/261cf6f114b89987d2e392e87d9022c60ee3a9c6))
+
 ## 1.8.2 (2025-04-30)
 
 Full Changelog: [v1.8.1...v1.8.2](https://github.com/lumalabs/lumaai-node/compare/v1.8.1...v1.8.2)

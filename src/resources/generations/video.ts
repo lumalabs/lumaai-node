@@ -7,6 +7,25 @@ import * as GenerationsAPI from './generations';
 export class Video extends APIResource {
   /**
    * Initiate a new generation with the provided prompt
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.video.create({
+   *   aspect_ratio: '16:9',
+   *   keyframes: {
+   *     frame0: {
+   *       type: 'image',
+   *       url: 'https://example.com/image.jpg',
+   *     },
+   *     frame1: {
+   *       type: 'generation',
+   *       id: '123e4567-e89b-12d3-a456-426614174000',
+   *     },
+   *   },
+   *   loop: true,
+   *   prompt: 'A serene lake surrounded by mountains at sunset',
+   * });
+   * ```
    */
   create(body: VideoCreateParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
     return this._client.post('/generations', { body, ...options });
