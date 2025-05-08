@@ -9,8 +9,8 @@ const client = new LumaAI({
 });
 
 describe('resource image', () => {
-  test('create', async () => {
-    const responsePromise = client.generations.image.create({});
+  test('create: only required params', async () => {
+    const responsePromise = client.generations.image.create({ model: 'photon-1' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -18,5 +18,22 @@ describe('resource image', () => {
     const dataAndResponse = await responsePromise.withResponse();
     expect(dataAndResponse.data).toBe(response);
     expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('create: required and optional params', async () => {
+    const response = await client.generations.image.create({
+      model: 'photon-1',
+      aspect_ratio: '16:9',
+      callback_url: 'https://example.com',
+      character_ref: { identity0: { images: ['https://example.com'] } },
+      format: 'jpg',
+      generation_type: 'image',
+      image_ref: [{ url: 'https://example.com', weight: 0 }],
+      modify_image_ref: { url: 'https://example.com', weight: 0 },
+      prompt: 'prompt',
+      style_ref: [{ url: 'https://example.com', weight: 0 }],
+      sync: true,
+      sync_timeout: 0,
+    });
   });
 });
