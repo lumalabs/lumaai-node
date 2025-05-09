@@ -21,6 +21,7 @@ export class Generations extends APIResource {
    * @example
    * ```ts
    * const generation = await client.generations.create({
+   *   model: 'ray-1-6',
    *   aspect_ratio: '16:9',
    *   keyframes: {
    *     frame0: {
@@ -192,6 +193,11 @@ export namespace Generation {
    */
   export interface GenerationRequest {
     /**
+     * The model used for the generation
+     */
+    model: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
+
+    /**
      * The aspect ratio of the generation
      */
     aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
@@ -224,11 +230,6 @@ export namespace Generation {
      * Whether to loop the video
      */
     loop?: boolean;
-
-    /**
-     * The model used for the generation
-     */
-    model?: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
 
     /**
      * The prompt of the generation
@@ -323,6 +324,11 @@ export namespace Generation {
    */
   export interface ImageGenerationRequest {
     /**
+     * The model used for the generation
+     */
+    model: 'photon-1' | 'photon-flash-1';
+
+    /**
      * The aspect ratio of the generation
      */
     aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
@@ -342,11 +348,6 @@ export namespace Generation {
     generation_type?: 'image';
 
     image_ref?: Array<ImageGenerationRequest.ImageRef>;
-
-    /**
-     * The model used for the generation
-     */
-    model?: 'photon-1' | 'photon-flash-1';
 
     /**
      * The modify image reference object
@@ -509,6 +510,11 @@ export interface GenerationListResponse {
 
 export interface GenerationCreateParams {
   /**
+   * The model used for the generation
+   */
+  model: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
+
+  /**
    * The aspect ratio of the generation
    */
   aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
@@ -541,11 +547,6 @@ export interface GenerationCreateParams {
    * Whether to loop the video
    */
   loop?: boolean;
-
-  /**
-   * The model used for the generation
-   */
-  model?: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
 
   /**
    * The prompt of the generation

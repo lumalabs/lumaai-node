@@ -26,6 +26,7 @@ const client = new LumaAI({
 
 async function main() {
   const generation = await client.generations.create({
+    model: 'ray-1-6',
     aspect_ratio: '16:9',
     prompt:
       'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
@@ -51,6 +52,7 @@ const client = new LumaAI({
 
 async function main() {
   const params: LumaAI.GenerationCreateParams = {
+    model: 'ray-1-6',
     aspect_ratio: '16:9',
     prompt:
       'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
@@ -74,6 +76,7 @@ a subclass of `APIError` will be thrown:
 async function main() {
   const generation = await client.generations
     .create({
+      model: 'ray-1-6',
       aspect_ratio: '16:9',
       prompt:
         'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
@@ -121,7 +124,7 @@ const client = new LumaAI({
 });
 
 // Or, configure per-request:
-await client.generations.create({ aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.create({ model: 'ray-1-6', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
   maxRetries: 5,
 });
 ```
@@ -138,7 +141,7 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create({ aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.create({ model: 'ray-1-6', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -161,6 +164,7 @@ const client = new LumaAI();
 
 const response = await client.generations
   .create({
+    model: 'ray-1-6',
     aspect_ratio: '16:9',
     prompt:
       'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
@@ -171,6 +175,7 @@ console.log(response.statusText); // access the underlying Response object
 
 const { data: generation, response: raw } = await client.generations
   .create({
+    model: 'ray-1-6',
     aspect_ratio: '16:9',
     prompt:
       'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
@@ -283,6 +288,7 @@ const client = new LumaAI({
 // Override per-request:
 await client.generations.create(
   {
+    model: 'ray-1-6',
     aspect_ratio: '16:9',
     prompt:
       'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
