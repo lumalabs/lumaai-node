@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9.1 (2025-05-22)
+
+Full Changelog: [v1.9.0...v1.9.1](https://github.com/lumalabs/lumaai-node/compare/v1.9.0...v1.9.1)
+
+### Chores
+
+* **docs:** grammar improvements ([1b7547c](https://github.com/lumalabs/lumaai-node/commit/1b7547c0e127f58ced1359c2c22f24108616981c))
+
 ## 1.9.0 (2025-05-08)
 
 Full Changelog: [v1.8.3...v1.9.0](https://github.com/lumalabs/lumaai-node/compare/v1.8.3...v1.9.0)
