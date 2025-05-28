@@ -36,4 +36,38 @@ describe('resource image', () => {
       sync_timeout: 0,
     });
   });
+
+  test('reframe: only required params', async () => {
+    const responsePromise = client.generations.image.reframe({
+      aspect_ratio: '16:9',
+      generation_type: 'reframe_image',
+      media: { url: 'https://example.com' },
+      model: 'photon-1',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('reframe: required and optional params', async () => {
+    const response = await client.generations.image.reframe({
+      aspect_ratio: '16:9',
+      generation_type: 'reframe_image',
+      media: { url: 'https://example.com' },
+      model: 'photon-1',
+      callback_url: 'https://example.com',
+      format: 'jpg',
+      grid_position_x: 0,
+      grid_position_y: 0,
+      prompt: 'prompt',
+      x_end: 0,
+      x_start: 0,
+      y_end: 0,
+      y_start: 0,
+    });
+  });
 });

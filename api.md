@@ -7,7 +7,6 @@ Types:
 
 Methods:
 
-- <code title="post /generations">client.generations.<a href="./src/resources/generations/generations.ts">create</a>({ ...params }) -> Generation</code>
 - <code title="get /generations">client.generations.<a href="./src/resources/generations/generations.ts">list</a>({ ...params }) -> GenerationListResponse</code>
 - <code title="delete /generations/{id}">client.generations.<a href="./src/resources/generations/generations.ts">delete</a>(id) -> void</code>
 - <code title="post /generations/{id}/audio">client.generations.<a href="./src/resources/generations/generations.ts">audio</a>(id, { ...params }) -> Generation</code>
@@ -29,12 +28,13 @@ Methods:
 Methods:
 
 - <code title="post /generations/image">client.generations.image.<a href="./src/resources/generations/image.ts">create</a>({ ...params }) -> Generation</code>
+- <code title="post /generations/image/reframe">client.generations.image.<a href="./src/resources/generations/image.ts">reframe</a>({ ...params }) -> Generation</code>
 
 ## Video
 
 Methods:
 
-- <code title="post /generations">client.generations.video.<a href="./src/resources/generations/video.ts">create</a>({ ...params }) -> Generation</code>
+- <code title="post /generations/video/reframe">client.generations.video.<a href="./src/resources/generations/video.ts">reframe</a>({ ...params }) -> Generation</code>
 
 # Ping
 

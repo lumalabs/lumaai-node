@@ -6,43 +6,43 @@ import * as GenerationsAPI from './generations';
 
 export class Video extends APIResource {
   /**
-   * Initiate a new generation with the provided prompt
+   * Reframe a video by its ID
    *
    * @example
    * ```ts
-   * const generation = await client.generations.video.create({
-   *   model: 'ray-1-6',
+   * const generation = await client.generations.video.reframe({
    *   aspect_ratio: '16:9',
-   *   keyframes: {
-   *     frame0: {
-   *       type: 'image',
-   *       url: 'https://example.com/image.jpg',
-   *     },
-   *     frame1: {
-   *       type: 'generation',
-   *       id: '123e4567-e89b-12d3-a456-426614174000',
-   *     },
-   *   },
-   *   loop: true,
-   *   prompt: 'A serene lake surrounded by mountains at sunset',
+   *   generation_type: 'reframe_video',
+   *   media: { url: 'https://example.com' },
+   *   model: 'ray-2',
    * });
    * ```
    */
-  create(body: VideoCreateParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
-    return this._client.post('/generations', { body, ...options });
+  reframe(
+    body: VideoReframeParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<GenerationsAPI.Generation> {
+    return this._client.post('/generations/video/reframe', { body, ...options });
   }
 }
 
-export interface VideoCreateParams {
-  /**
-   * The model used for the generation
-   */
-  model: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
-
+export interface VideoReframeParams {
   /**
    * The aspect ratio of the generation
    */
-  aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+  aspect_ratio: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+  generation_type: 'reframe_video';
+
+  /**
+   * The image entity object
+   */
+  media: VideoReframeParams.Media;
+
+  /**
+   * The model used for the reframe video
+   */
+  model: 'ray-2' | 'ray-flash-2';
 
   /**
    * The callback URL of the generation, a POST request with Generation object will
@@ -52,26 +52,19 @@ export interface VideoCreateParams {
   callback_url?: string;
 
   /**
-   * The concepts of the generation
+   * The image entity object
    */
-  concepts?: Array<VideoCreateParams.Concept>;
+  first_frame?: VideoReframeParams.FirstFrame;
 
   /**
-   * The duration of the generation
+   * The x position of the image in the grid
    */
-  duration?: '5s' | '9s' | (string & {});
-
-  generation_type?: 'video';
+  grid_position_x?: number;
 
   /**
-   * The keyframes of the generation
+   * The y position of the image in the grid
    */
-  keyframes?: VideoCreateParams.Keyframes;
-
-  /**
-   * Whether to loop the video
-   */
-  loop?: boolean;
+  grid_position_y?: number;
 
   /**
    * The prompt of the generation
@@ -79,88 +72,48 @@ export interface VideoCreateParams {
   prompt?: string;
 
   /**
-   * The resolution of the generation
+   * The x end of the crop bounds
    */
-  resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
+  x_end?: number;
+
+  /**
+   * The x start of the crop bounds
+   */
+  x_start?: number;
+
+  /**
+   * The y end of the crop bounds
+   */
+  y_end?: number;
+
+  /**
+   * The y start of the crop bounds
+   */
+  y_start?: number;
 }
 
-export namespace VideoCreateParams {
+export namespace VideoReframeParams {
   /**
-   * The concept object
+   * The image entity object
    */
-  export interface Concept {
+  export interface Media {
     /**
-     * The key of the concept
+     * The URL of the image
      */
-    key: string;
+    url: string;
   }
 
   /**
-   * The keyframes of the generation
+   * The image entity object
    */
-  export interface Keyframes {
+  export interface FirstFrame {
     /**
-     * The frame 0 of the generation
+     * The URL of the image
      */
-    frame0?: Keyframes.GenerationReference | Keyframes.ImageReference;
-
-    /**
-     * The frame 1 of the generation
-     */
-    frame1?: Keyframes.GenerationReference | Keyframes.ImageReference;
-  }
-
-  export namespace Keyframes {
-    /**
-     * The generation reference object
-     */
-    export interface GenerationReference {
-      /**
-       * The ID of the generation
-       */
-      id: string;
-
-      type: 'generation';
-    }
-
-    /**
-     * The image object
-     */
-    export interface ImageReference {
-      type: 'image';
-
-      /**
-       * The URL of the image
-       */
-      url: string;
-    }
-
-    /**
-     * The generation reference object
-     */
-    export interface GenerationReference {
-      /**
-       * The ID of the generation
-       */
-      id: string;
-
-      type: 'generation';
-    }
-
-    /**
-     * The image object
-     */
-    export interface ImageReference {
-      type: 'image';
-
-      /**
-       * The URL of the image
-       */
-      url: string;
-    }
+    url: string;
   }
 }
 
 export declare namespace Video {
-  export { type VideoCreateParams as VideoCreateParams };
+  export { type VideoReframeParams as VideoReframeParams };
 }

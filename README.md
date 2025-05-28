@@ -25,14 +25,9 @@ const client = new LumaAI({
 });
 
 async function main() {
-  const generation = await client.generations.create({
-    model: 'ray-1-6',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  });
+  const generations = await client.generations.list();
 
-  console.log(generation.id);
+  console.log(generations.generations);
 }
 
 main();
@@ -51,13 +46,7 @@ const client = new LumaAI({
 });
 
 async function main() {
-  const params: LumaAI.GenerationCreateParams = {
-    model: 'ray-1-6',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  };
-  const generation: LumaAI.Generation = await client.generations.create(params);
+  const generations: LumaAI.GenerationListResponse = await client.generations.list();
 }
 
 main();
@@ -74,22 +63,15 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 async function main() {
-  const generation = await client.generations
-    .create({
-      model: 'ray-1-6',
-      aspect_ratio: '16:9',
-      prompt:
-        'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-    })
-    .catch(async (err) => {
-      if (err instanceof LumaAI.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
+  const generations = await client.generations.list().catch(async (err) => {
+    if (err instanceof LumaAI.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 }
 
 main();
@@ -124,7 +106,7 @@ const client = new LumaAI({
 });
 
 // Or, configure per-request:
-await client.generations.create({ model: 'ray-1-6', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.list({
   maxRetries: 5,
 });
 ```
@@ -141,7 +123,7 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create({ model: 'ray-1-6', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.list({
   timeout: 5 * 1000,
 });
 ```
@@ -162,27 +144,13 @@ You can also use the `.withResponse()` method to get the raw `Response` along wi
 ```ts
 const client = new LumaAI();
 
-const response = await client.generations
-  .create({
-    model: 'ray-1-6',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  })
-  .asResponse();
+const response = await client.generations.list().asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: generation, response: raw } = await client.generations
-  .create({
-    model: 'ray-1-6',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  })
-  .withResponse();
+const { data: generations, response: raw } = await client.generations.list().withResponse();
 console.log(raw.headers.get('X-My-Header'));
-console.log(generation.id);
+console.log(generations.generations);
 ```
 
 ### Making custom/undocumented requests
@@ -286,17 +254,9 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create(
-  {
-    model: 'ray-1-6',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  },
-  {
-    httpAgent: new http.Agent({ keepAlive: false }),
-  },
-);
+await client.generations.list({
+  httpAgent: new http.Agent({ keepAlive: false }),
+});
 ```
 
 ## Semantic versioning
