@@ -18,6 +18,26 @@ export class Image extends APIResource {
   create(body: ImageCreateParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
     return this._client.post('/generations/image', { body, ...options });
   }
+
+  /**
+   * Reframe an image by its ID
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.image.reframe({
+   *   aspect_ratio: '16:9',
+   *   generation_type: 'reframe_image',
+   *   media: { url: 'https://example.com' },
+   *   model: 'photon-1',
+   * });
+   * ```
+   */
+  reframe(
+    body: ImageReframeParams,
+    options?: Core.RequestOptions,
+  ): Core.APIPromise<GenerationsAPI.Generation> {
+    return this._client.post('/generations/image/reframe', { body, ...options });
+  }
 }
 
 export interface ImageCreateParams {
@@ -136,6 +156,84 @@ export namespace ImageCreateParams {
   }
 }
 
+export interface ImageReframeParams {
+  /**
+   * The aspect ratio of the generation
+   */
+  aspect_ratio: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+  generation_type: 'reframe_image';
+
+  /**
+   * The image entity object
+   */
+  media: ImageReframeParams.Media;
+
+  /**
+   * The model used for the reframe image
+   */
+  model: 'photon-1' | 'photon-flash-1';
+
+  /**
+   * The callback URL of the generation, a POST request with Generation object will
+   * be sent to the callback URL when the generation is dreaming, completed, or
+   * failed
+   */
+  callback_url?: string;
+
+  /**
+   * The format of the image
+   */
+  format?: 'jpg' | 'png';
+
+  /**
+   * The x position of the image in the grid
+   */
+  grid_position_x?: number;
+
+  /**
+   * The y position of the image in the grid
+   */
+  grid_position_y?: number;
+
+  /**
+   * The prompt of the generation
+   */
+  prompt?: string;
+
+  /**
+   * The x end of the crop bounds
+   */
+  x_end?: number;
+
+  /**
+   * The x start of the crop bounds
+   */
+  x_start?: number;
+
+  /**
+   * The y end of the crop bounds
+   */
+  y_end?: number;
+
+  /**
+   * The y start of the crop bounds
+   */
+  y_start?: number;
+}
+
+export namespace ImageReframeParams {
+  /**
+   * The image entity object
+   */
+  export interface Media {
+    /**
+     * The URL of the image
+     */
+    url: string;
+  }
+}
+
 export declare namespace Image {
-  export { type ImageCreateParams as ImageCreateParams };
+  export { type ImageCreateParams as ImageCreateParams, type ImageReframeParams as ImageReframeParams };
 }

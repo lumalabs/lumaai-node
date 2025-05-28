@@ -9,8 +9,13 @@ const client = new LumaAI({
 });
 
 describe('resource video', () => {
-  test('create: only required params', async () => {
-    const responsePromise = client.generations.video.create({ model: 'ray-1-6' });
+  test('reframe: only required params', async () => {
+    const responsePromise = client.generations.video.reframe({
+      aspect_ratio: '16:9',
+      generation_type: 'reframe_video',
+      media: { url: 'https://example.com' },
+      model: 'ray-2',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -20,21 +25,21 @@ describe('resource video', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  test('create: required and optional params', async () => {
-    const response = await client.generations.video.create({
-      model: 'ray-1-6',
+  test('reframe: required and optional params', async () => {
+    const response = await client.generations.video.reframe({
       aspect_ratio: '16:9',
+      generation_type: 'reframe_video',
+      media: { url: 'https://example.com' },
+      model: 'ray-2',
       callback_url: 'https://example.com',
-      concepts: [{ key: 'key' }],
-      duration: '5s',
-      generation_type: 'video',
-      keyframes: {
-        frame0: { type: 'image', url: 'https://example.com/image.jpg' },
-        frame1: { id: '123e4567-e89b-12d3-a456-426614174000', type: 'generation' },
-      },
-      loop: true,
-      prompt: 'A serene lake surrounded by mountains at sunset',
-      resolution: '540p',
+      first_frame: { url: 'https://example.com' },
+      grid_position_x: 0,
+      grid_position_y: 0,
+      prompt: 'prompt',
+      x_end: 0,
+      x_start: 0,
+      y_end: 0,
+      y_start: 0,
     });
   });
 });

@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.10.0 (2025-05-28)
+
+Full Changelog: [v1.9.0...v1.10.0](https://github.com/lumalabs/lumaai-node/compare/v1.9.0...v1.10.0)
+
+### Features
+
+* **api:** api update ([4e3db53](https://github.com/lumalabs/lumaai-node/commit/4e3db5399aa36cd5f6b42078087b744fdff823f2))
+
+
+### Chores
+
+* **docs:** grammar improvements ([1b7547c](https://github.com/lumalabs/lumaai-node/commit/1b7547c0e127f58ced1359c2c22f24108616981c))
+* improve publish-npm script --latest tag logic ([9306ec4](https://github.com/lumalabs/lumaai-node/commit/9306ec4b1dc387e247ad491861f44a4017864e3a))
+
 ## 1.9.0 (2025-05-08)
 
 Full Changelog: [v1.8.3...v1.9.0](https://github.com/lumalabs/lumaai-node/compare/v1.8.3...v1.9.0)
