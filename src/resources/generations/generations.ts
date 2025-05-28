@@ -6,41 +6,14 @@ import * as Core from '../../core';
 import * as ConceptsAPI from './concepts';
 import { ConceptListResponse, Concepts } from './concepts';
 import * as ImageAPI from './image';
-import { Image, ImageCreateParams } from './image';
+import { Image, ImageCreateParams, ImageReframeParams } from './image';
 import * as VideoAPI from './video';
-import { Video, VideoCreateParams } from './video';
+import { Video, VideoReframeParams } from './video';
 
 export class Generations extends APIResource {
   concepts: ConceptsAPI.Concepts = new ConceptsAPI.Concepts(this._client);
   image: ImageAPI.Image = new ImageAPI.Image(this._client);
   video: VideoAPI.Video = new VideoAPI.Video(this._client);
-
-  /**
-   * Initiate a new generation with the provided prompt
-   *
-   * @example
-   * ```ts
-   * const generation = await client.generations.create({
-   *   model: 'ray-1-6',
-   *   aspect_ratio: '16:9',
-   *   keyframes: {
-   *     frame0: {
-   *       type: 'image',
-   *       url: 'https://example.com/image.jpg',
-   *     },
-   *     frame1: {
-   *       type: 'generation',
-   *       id: '123e4567-e89b-12d3-a456-426614174000',
-   *     },
-   *   },
-   *   loop: true,
-   *   prompt: 'A serene lake surrounded by mountains at sunset',
-   * });
-   * ```
-   */
-  create(body: GenerationCreateParams, options?: Core.RequestOptions): Core.APIPromise<Generation> {
-    return this._client.post('/generations', { body, ...options });
-  }
 
   /**
    * Retrieve a list of generations with optional filtering and sorting
@@ -159,7 +132,9 @@ export interface Generation {
     | Generation.GenerationRequest
     | Generation.ImageGenerationRequest
     | Generation.UpscaleVideoGenerationRequest
-    | Generation.AudioGenerationRequest;
+    | Generation.AudioGenerationRequest
+    | Generation.ReframeImageRequest
+    | Generation.ReframeVideoRequest;
 
   /**
    * The state of the generation
@@ -476,6 +451,178 @@ export namespace Generation {
      */
     prompt?: string;
   }
+
+  /**
+   * The reframe image generation request object
+   */
+  export interface ReframeImageRequest {
+    /**
+     * The aspect ratio of the generation
+     */
+    aspect_ratio: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+    generation_type: 'reframe_image';
+
+    /**
+     * The image entity object
+     */
+    media: ReframeImageRequest.Media;
+
+    /**
+     * The model used for the reframe image
+     */
+    model: 'photon-1' | 'photon-flash-1';
+
+    /**
+     * The callback URL of the generation, a POST request with Generation object will
+     * be sent to the callback URL when the generation is dreaming, completed, or
+     * failed
+     */
+    callback_url?: string;
+
+    /**
+     * The format of the image
+     */
+    format?: 'jpg' | 'png';
+
+    /**
+     * The x position of the image in the grid
+     */
+    grid_position_x?: number;
+
+    /**
+     * The y position of the image in the grid
+     */
+    grid_position_y?: number;
+
+    /**
+     * The prompt of the generation
+     */
+    prompt?: string;
+
+    /**
+     * The x end of the crop bounds
+     */
+    x_end?: number;
+
+    /**
+     * The x start of the crop bounds
+     */
+    x_start?: number;
+
+    /**
+     * The y end of the crop bounds
+     */
+    y_end?: number;
+
+    /**
+     * The y start of the crop bounds
+     */
+    y_start?: number;
+  }
+
+  export namespace ReframeImageRequest {
+    /**
+     * The image entity object
+     */
+    export interface Media {
+      /**
+       * The URL of the image
+       */
+      url: string;
+    }
+  }
+
+  /**
+   * The reframe video generation request object
+   */
+  export interface ReframeVideoRequest {
+    /**
+     * The aspect ratio of the generation
+     */
+    aspect_ratio: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
+
+    generation_type: 'reframe_video';
+
+    /**
+     * The image entity object
+     */
+    media: ReframeVideoRequest.Media;
+
+    /**
+     * The model used for the reframe video
+     */
+    model: 'ray-2' | 'ray-flash-2';
+
+    /**
+     * The callback URL of the generation, a POST request with Generation object will
+     * be sent to the callback URL when the generation is dreaming, completed, or
+     * failed
+     */
+    callback_url?: string;
+
+    /**
+     * The image entity object
+     */
+    first_frame?: ReframeVideoRequest.FirstFrame;
+
+    /**
+     * The x position of the image in the grid
+     */
+    grid_position_x?: number;
+
+    /**
+     * The y position of the image in the grid
+     */
+    grid_position_y?: number;
+
+    /**
+     * The prompt of the generation
+     */
+    prompt?: string;
+
+    /**
+     * The x end of the crop bounds
+     */
+    x_end?: number;
+
+    /**
+     * The x start of the crop bounds
+     */
+    x_start?: number;
+
+    /**
+     * The y end of the crop bounds
+     */
+    y_end?: number;
+
+    /**
+     * The y start of the crop bounds
+     */
+    y_start?: number;
+  }
+
+  export namespace ReframeVideoRequest {
+    /**
+     * The image entity object
+     */
+    export interface Media {
+      /**
+       * The URL of the image
+       */
+      url: string;
+    }
+
+    /**
+     * The image entity object
+     */
+    export interface FirstFrame {
+      /**
+       * The URL of the image
+       */
+      url: string;
+    }
+  }
 }
 
 /**
@@ -506,134 +653,6 @@ export interface GenerationListResponse {
    * The offset of the generations requested
    */
   offset?: number;
-}
-
-export interface GenerationCreateParams {
-  /**
-   * The model used for the generation
-   */
-  model: 'ray-1-6' | 'ray-2' | 'ray-flash-2';
-
-  /**
-   * The aspect ratio of the generation
-   */
-  aspect_ratio?: '1:1' | '16:9' | '9:16' | '4:3' | '3:4' | '21:9' | '9:21';
-
-  /**
-   * The callback URL of the generation, a POST request with Generation object will
-   * be sent to the callback URL when the generation is dreaming, completed, or
-   * failed
-   */
-  callback_url?: string;
-
-  /**
-   * The concepts of the generation
-   */
-  concepts?: Array<GenerationCreateParams.Concept>;
-
-  /**
-   * The duration of the generation
-   */
-  duration?: '5s' | '9s' | (string & {});
-
-  generation_type?: 'video';
-
-  /**
-   * The keyframes of the generation
-   */
-  keyframes?: GenerationCreateParams.Keyframes;
-
-  /**
-   * Whether to loop the video
-   */
-  loop?: boolean;
-
-  /**
-   * The prompt of the generation
-   */
-  prompt?: string;
-
-  /**
-   * The resolution of the generation
-   */
-  resolution?: '540p' | '720p' | '1080p' | '4k' | (string & {});
-}
-
-export namespace GenerationCreateParams {
-  /**
-   * The concept object
-   */
-  export interface Concept {
-    /**
-     * The key of the concept
-     */
-    key: string;
-  }
-
-  /**
-   * The keyframes of the generation
-   */
-  export interface Keyframes {
-    /**
-     * The frame 0 of the generation
-     */
-    frame0?: Keyframes.GenerationReference | Keyframes.ImageReference;
-
-    /**
-     * The frame 1 of the generation
-     */
-    frame1?: Keyframes.GenerationReference | Keyframes.ImageReference;
-  }
-
-  export namespace Keyframes {
-    /**
-     * The generation reference object
-     */
-    export interface GenerationReference {
-      /**
-       * The ID of the generation
-       */
-      id: string;
-
-      type: 'generation';
-    }
-
-    /**
-     * The image object
-     */
-    export interface ImageReference {
-      type: 'image';
-
-      /**
-       * The URL of the image
-       */
-      url: string;
-    }
-
-    /**
-     * The generation reference object
-     */
-    export interface GenerationReference {
-      /**
-       * The ID of the generation
-       */
-      id: string;
-
-      type: 'generation';
-    }
-
-    /**
-     * The image object
-     */
-    export interface ImageReference {
-      type: 'image';
-
-      /**
-       * The URL of the image
-       */
-      url: string;
-    }
-  }
 }
 
 export interface GenerationListParams {
@@ -683,7 +702,6 @@ export declare namespace Generations {
   export {
     type Generation as Generation,
     type GenerationListResponse as GenerationListResponse,
-    type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
     type GenerationAudioParams as GenerationAudioParams,
     type GenerationUpscaleParams as GenerationUpscaleParams,
@@ -691,7 +709,11 @@ export declare namespace Generations {
 
   export { Concepts as Concepts, type ConceptListResponse as ConceptListResponse };
 
-  export { Image as Image, type ImageCreateParams as ImageCreateParams };
+  export {
+    Image as Image,
+    type ImageCreateParams as ImageCreateParams,
+    type ImageReframeParams as ImageReframeParams,
+  };
 
-  export { Video as Video, type VideoCreateParams as VideoCreateParams };
+  export { Video as Video, type VideoReframeParams as VideoReframeParams };
 }
