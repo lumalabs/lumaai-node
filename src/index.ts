@@ -10,6 +10,7 @@ import { Ping, PingCheckResponse } from './resources/ping';
 import {
   Generation,
   GenerationAudioParams,
+  GenerationCreateParams,
   GenerationListParams,
   GenerationListResponse,
   GenerationUpscaleParams,
@@ -179,6 +180,7 @@ export declare namespace LumaAI {
     Generations as Generations,
     type Generation as Generation,
     type GenerationListResponse as GenerationListResponse,
+    type GenerationCreateParams as GenerationCreateParams,
     type GenerationListParams as GenerationListParams,
     type GenerationAudioParams as GenerationAudioParams,
     type GenerationUpscaleParams as GenerationUpscaleParams,

@@ -5,9 +5,10 @@ export {
   Generations,
   type Generation,
   type GenerationListResponse,
+  type GenerationCreateParams,
   type GenerationListParams,
   type GenerationAudioParams,
   type GenerationUpscaleParams,
 } from './generations';
 export { Image, type ImageCreateParams, type ImageReframeParams } from './image';
-export { Video, type VideoReframeParams } from './video';
+export { Video, type VideoCreateParams, type VideoReframeParams } from './video';
