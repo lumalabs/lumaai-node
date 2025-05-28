@@ -5,6 +5,7 @@ export {
   Generations,
   type Generation,
   type GenerationListResponse,
+  type GenerationCreateParams,
   type GenerationListParams,
   type GenerationAudioParams,
   type GenerationUpscaleParams,
