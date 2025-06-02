@@ -202,6 +202,16 @@ export interface ImageReframeParams {
   prompt?: string;
 
   /**
+   * Resized height of source image
+   */
+  resized_height?: number;
+
+  /**
+   * Resized width of source image
+   */
+  resized_width?: number;
+
+  /**
    * The x end of the crop bounds
    */
   x_end?: number;

@@ -227,6 +227,16 @@ export interface VideoReframeParams {
   prompt?: string;
 
   /**
+   * Resized height of source video
+   */
+  resized_height?: number;
+
+  /**
+   * Resized width of source video
+   */
+  resized_width?: number;
+
+  /**
    * The x end of the crop bounds
    */
   x_end?: number;
