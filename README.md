@@ -24,18 +24,14 @@ const client = new LumaAI({
   authToken: process.env['LUMAAI_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const generation = await client.generations.create({
-    model: 'ray-2',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  });
+const generation = await client.generations.create({
+  model: 'ray-2',
+  aspect_ratio: '16:9',
+  prompt:
+    'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+});
 
-  console.log(generation.id);
-}
-
-main();
+console.log(generation.id);
 ```
 
 ### Request & Response types
@@ -50,17 +46,13 @@ const client = new LumaAI({
   authToken: process.env['LUMAAI_API_KEY'], // This is the default and can be omitted
 });
 
-async function main() {
-  const params: LumaAI.GenerationCreateParams = {
-    model: 'ray-2',
-    aspect_ratio: '16:9',
-    prompt:
-      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-  };
-  const generation: LumaAI.Generation = await client.generations.create(params);
-}
-
-main();
+const params: LumaAI.GenerationCreateParams = {
+  model: 'ray-2',
+  aspect_ratio: '16:9',
+  prompt:
+    'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+};
+const generation: LumaAI.Generation = await client.generations.create(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -73,26 +65,22 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-async function main() {
-  const generation = await client.generations
-    .create({
-      model: 'ray-2',
-      aspect_ratio: '16:9',
-      prompt:
-        'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
-    })
-    .catch(async (err) => {
-      if (err instanceof LumaAI.APIError) {
-        console.log(err.status); // 400
-        console.log(err.name); // BadRequestError
-        console.log(err.headers); // {server: 'nginx', ...}
-      } else {
-        throw err;
-      }
-    });
-}
-
-main();
+const generation = await client.generations
+  .create({
+    model: 'ray-2',
+    aspect_ratio: '16:9',
+    prompt:
+      'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+  })
+  .catch(async (err) => {
+    if (err instanceof LumaAI.APIError) {
+      console.log(err.status); // 400
+      console.log(err.name); // BadRequestError
+      console.log(err.headers); // {server: 'nginx', ...}
+    } else {
+      throw err;
+    }
+  });
 ```
 
 Error codes are as follows:
