@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.13.0 (2025-06-10)
+
+Full Changelog: [v1.12.0...v1.13.0](https://github.com/lumalabs/lumaai-node/compare/v1.12.0...v1.13.0)
+
+### Chores
+
+* **docs:** use top-level-await in example snippets ([ca7ff9c](https://github.com/lumalabs/lumaai-node/commit/ca7ff9ce6d012fb5d1882f5f1143bd06db96617f))
+
 ## 1.12.0 (2025-06-02)
 
 Full Changelog: [v1.11.0...v1.12.0](https://github.com/lumalabs/lumaai-node/compare/v1.11.0...v1.12.0)
