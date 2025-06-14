@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.13.1 (2025-06-14)
+
+Full Changelog: [v1.13.0...v1.13.1](https://github.com/lumalabs/lumaai-node/compare/v1.13.0...v1.13.1)
+
+### Bug Fixes
+
+* publish script — handle NPM errors correctly ([6fa1962](https://github.com/lumalabs/lumaai-node/commit/6fa19626b1fce1b1cd1d3a98b89871ddb6d32741))
+
+
+### Chores
+
+* **internal:** make base APIResource abstract ([4c701eb](https://github.com/lumalabs/lumaai-node/commit/4c701eb7e26d96299ff4405461bc522431033118))
+
 ## 1.13.0 (2025-06-10)
 
 Full Changelog: [v1.12.0...v1.13.0](https://github.com/lumalabs/lumaai-node/compare/v1.12.0...v1.13.0)
