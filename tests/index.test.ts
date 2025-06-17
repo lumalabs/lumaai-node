@@ -188,6 +188,28 @@ describe('instantiate client', () => {
       const client = new LumaAI({ authToken: 'My Auth Token' });
       expect(client.baseURL).toEqual('https://api.lumalabs.ai/dream-machine/v1');
     });
+
+    test('in request options', () => {
+      const client = new LumaAI({ authToken: 'My Auth Token' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/option/foo',
+      );
+    });
+
+    test('in request options overridden by client options', () => {
+      const client = new LumaAI({ authToken: 'My Auth Token', baseURL: 'http://localhost:5000/client' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/client/foo',
+      );
+    });
+
+    test('in request options overridden by env variable', () => {
+      process.env['LUMAAI_BASE_URL'] = 'http://localhost:5000/env';
+      const client = new LumaAI({ authToken: 'My Auth Token' });
+      expect(client.buildURL('/foo', null, 'http://localhost:5000/option')).toEqual(
+        'http://localhost:5000/env/foo',
+      );
+    });
   });
 
   test('maxRetries option is correctly set', () => {
