@@ -119,6 +119,7 @@ export class LumaAI extends Core.APIClient {
 
     super({
       baseURL: options.baseURL!,
+      baseURLOverridden: baseURL ? baseURL !== 'https://api.lumalabs.ai/dream-machine/v1' : false,
       timeout: options.timeout ?? 60000 /* 1 minute */,
       httpAgent: options.httpAgent,
       maxRetries: options.maxRetries,
@@ -133,6 +134,13 @@ export class LumaAI extends Core.APIClient {
   generations: API.Generations = new API.Generations(this);
   ping: API.Ping = new API.Ping(this);
   credits: API.Credits = new API.Credits(this);
+
+  /**
+   * Check whether the base URL is set to its default.
+   */
+  #baseURLOverridden(): boolean {
+    return this.baseURL !== 'https://api.lumalabs.ai/dream-machine/v1';
+  }
 
   protected override defaultQuery(): Core.DefaultQuery | undefined {
     return this._options.defaultQuery;
