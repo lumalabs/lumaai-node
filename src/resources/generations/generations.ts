@@ -8,7 +8,7 @@ import { ConceptListResponse, Concepts } from './concepts';
 import * as ImageAPI from './image';
 import { Image, ImageCreateParams, ImageReframeParams } from './image';
 import * as VideoAPI from './video';
-import { Video, VideoCreateParams, VideoReframeParams } from './video';
+import { Video, VideoCreateParams, VideoModifyParams, VideoReframeParams } from './video';
 
 export class Generations extends APIResource {
   concepts: ConceptsAPI.Concepts = new ConceptsAPI.Concepts(this._client);
@@ -965,6 +965,7 @@ export declare namespace Generations {
   export {
     Video as Video,
     type VideoCreateParams as VideoCreateParams,
+    type VideoModifyParams as VideoModifyParams,
     type VideoReframeParams as VideoReframeParams,
   };
 }

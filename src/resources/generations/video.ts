@@ -33,6 +33,23 @@ export class Video extends APIResource {
   }
 
   /**
+   * Modify a video with style transfer and prompt-based editing
+   *
+   * @example
+   * ```ts
+   * const generation = await client.generations.video.modify({
+   *   generation_type: 'modify_video',
+   *   media: { url: 'https://example.com' },
+   *   mode: 'adhere_1',
+   *   model: 'ray-2',
+   * });
+   * ```
+   */
+  modify(body: VideoModifyParams, options?: Core.RequestOptions): Core.APIPromise<GenerationsAPI.Generation> {
+    return this._client.post('/generations/video/modify', { body, ...options });
+  }
+
+  /**
    * Reframe a video by its ID
    *
    * @example
@@ -181,6 +198,73 @@ export namespace VideoCreateParams {
   }
 }
 
+export interface VideoModifyParams {
+  generation_type: 'modify_video';
+
+  /**
+   * The image entity object
+   */
+  media: VideoModifyParams.Media;
+
+  /**
+   * The mode of the modify video
+   */
+  mode:
+    | 'adhere_1'
+    | 'adhere_2'
+    | 'adhere_3'
+    | 'flex_1'
+    | 'flex_2'
+    | 'flex_3'
+    | 'reimagine_1'
+    | 'reimagine_2'
+    | 'reimagine_3';
+
+  /**
+   * The model used for the modify video
+   */
+  model: 'ray-2';
+
+  /**
+   * The callback URL of the generation, a POST request with Generation object will
+   * be sent to the callback URL when the generation is dreaming, completed, or
+   * failed
+   */
+  callback_url?: string;
+
+  /**
+   * The image entity object
+   */
+  first_frame?: VideoModifyParams.FirstFrame;
+
+  /**
+   * The prompt of the generation
+   */
+  prompt?: string;
+}
+
+export namespace VideoModifyParams {
+  /**
+   * The image entity object
+   */
+  export interface Media {
+    /**
+     * The URL of the media
+     */
+    url: string;
+  }
+
+  /**
+   * The image entity object
+   */
+  export interface FirstFrame {
+    /**
+     * The URL of the media
+     */
+    url: string;
+  }
+}
+
 export interface VideoReframeParams {
   /**
    * The aspect ratio of the generation
@@ -280,5 +364,9 @@ export namespace VideoReframeParams {
 }
 
 export declare namespace Video {
-  export { type VideoCreateParams as VideoCreateParams, type VideoReframeParams as VideoReframeParams };
+  export {
+    type VideoCreateParams as VideoCreateParams,
+    type VideoModifyParams as VideoModifyParams,
+    type VideoReframeParams as VideoReframeParams,
+  };
 }

@@ -38,6 +38,34 @@ describe('resource video', () => {
     });
   });
 
+  test('modify: only required params', async () => {
+    const responsePromise = client.generations.video.modify({
+      generation_type: 'modify_video',
+      media: { url: 'https://example.com' },
+      mode: 'adhere_1',
+      model: 'ray-2',
+    });
+    const rawResponse = await responsePromise.asResponse();
+    expect(rawResponse).toBeInstanceOf(Response);
+    const response = await responsePromise;
+    expect(response).not.toBeInstanceOf(Response);
+    const dataAndResponse = await responsePromise.withResponse();
+    expect(dataAndResponse.data).toBe(response);
+    expect(dataAndResponse.response).toBe(rawResponse);
+  });
+
+  test('modify: required and optional params', async () => {
+    const response = await client.generations.video.modify({
+      generation_type: 'modify_video',
+      media: { url: 'https://example.com' },
+      mode: 'adhere_1',
+      model: 'ray-2',
+      callback_url: 'https://example.com',
+      first_frame: { url: 'https://example.com' },
+      prompt: 'prompt',
+    });
+  });
+
   test('reframe: only required params', async () => {
     const responsePromise = client.generations.video.reframe({
       aspect_ratio: '16:9',
