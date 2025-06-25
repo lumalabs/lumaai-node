@@ -263,7 +263,7 @@ export namespace VideoReframeParams {
    */
   export interface Media {
     /**
-     * The URL of the image
+     * The URL of the media
      */
     url: string;
   }
@@ -273,7 +273,7 @@ export namespace VideoReframeParams {
    */
   export interface FirstFrame {
     /**
-     * The URL of the image
+     * The URL of the media
      */
     url: string;
   }

@@ -238,7 +238,7 @@ export namespace ImageReframeParams {
    */
   export interface Media {
     /**
-     * The URL of the image
+     * The URL of the media
      */
     url: string;
   }
