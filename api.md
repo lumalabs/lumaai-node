@@ -36,6 +36,7 @@ Methods:
 Methods:
 
 - <code title="post /generations/video">client.generations.video.<a href="./src/resources/generations/video.ts">create</a>({ ...params }) -> Generation</code>
+- <code title="post /generations/video/modify">client.generations.video.<a href="./src/resources/generations/video.ts">modify</a>({ ...params }) -> Generation</code>
 - <code title="post /generations/video/reframe">client.generations.video.<a href="./src/resources/generations/video.ts">reframe</a>({ ...params }) -> Generation</code>
 
 # Ping

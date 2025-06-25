@@ -8,7 +8,7 @@ import { ConceptListResponse, Concepts } from './concepts';
 import * as ImageAPI from './image';
 import { Image, ImageCreateParams, ImageReframeParams } from './image';
 import * as VideoAPI from './video';
-import { Video, VideoCreateParams, VideoReframeParams } from './video';
+import { Video, VideoCreateParams, VideoModifyParams, VideoReframeParams } from './video';
 
 export class Generations extends APIResource {
   concepts: ConceptsAPI.Concepts = new ConceptsAPI.Concepts(this._client);
@@ -161,7 +161,8 @@ export interface Generation {
     | Generation.UpscaleVideoGenerationRequest
     | Generation.AudioGenerationRequest
     | Generation.ReframeImageRequest
-    | Generation.ReframeVideoRequest;
+    | Generation.ReframeVideoRequest
+    | Generation.ModifyVideoRequest;
 
   /**
    * The state of the generation
@@ -564,7 +565,7 @@ export namespace Generation {
      */
     export interface Media {
       /**
-       * The URL of the image
+       * The URL of the media
        */
       url: string;
     }
@@ -655,7 +656,7 @@ export namespace Generation {
      */
     export interface Media {
       /**
-       * The URL of the image
+       * The URL of the media
        */
       url: string;
     }
@@ -665,7 +666,77 @@ export namespace Generation {
      */
     export interface FirstFrame {
       /**
-       * The URL of the image
+       * The URL of the media
+       */
+      url: string;
+    }
+  }
+
+  /**
+   * The modify video generation request object
+   */
+  export interface ModifyVideoRequest {
+    generation_type: 'modify_video';
+
+    /**
+     * The image entity object
+     */
+    media: ModifyVideoRequest.Media;
+
+    /**
+     * The mode of the modify video
+     */
+    mode:
+      | 'adhere_1'
+      | 'adhere_2'
+      | 'adhere_3'
+      | 'flex_1'
+      | 'flex_2'
+      | 'flex_3'
+      | 'reimagine_1'
+      | 'reimagine_2'
+      | 'reimagine_3';
+
+    /**
+     * The model used for the modify video
+     */
+    model: 'ray-2';
+
+    /**
+     * The callback URL of the generation, a POST request with Generation object will
+     * be sent to the callback URL when the generation is dreaming, completed, or
+     * failed
+     */
+    callback_url?: string;
+
+    /**
+     * The image entity object
+     */
+    first_frame?: ModifyVideoRequest.FirstFrame;
+
+    /**
+     * The prompt of the generation
+     */
+    prompt?: string;
+  }
+
+  export namespace ModifyVideoRequest {
+    /**
+     * The image entity object
+     */
+    export interface Media {
+      /**
+       * The URL of the media
+       */
+      url: string;
+    }
+
+    /**
+     * The image entity object
+     */
+    export interface FirstFrame {
+      /**
+       * The URL of the media
        */
       url: string;
     }
@@ -894,6 +965,7 @@ export declare namespace Generations {
   export {
     Video as Video,
     type VideoCreateParams as VideoCreateParams,
+    type VideoModifyParams as VideoModifyParams,
     type VideoReframeParams as VideoReframeParams,
   };
 }
