@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.15.1 (2025-06-28)
+
+Full Changelog: [v1.15.0...v1.15.1](https://github.com/lumalabs/lumaai-node/compare/v1.15.0...v1.15.1)
+
+### Bug Fixes
+
+* **ci:** release-doctor — report correct token name ([a8cfea2](https://github.com/lumalabs/lumaai-node/commit/a8cfea2e5739b6714f294d8d9a07d704e8fd6cce))
+
+
+### Chores
+
+* **ci:** only run for pushes and fork pull requests ([e8a329c](https://github.com/lumalabs/lumaai-node/commit/e8a329c134e8b1c604f4e90c12d63ea4045ef917))
+* remove custom code ([4e255d9](https://github.com/lumalabs/lumaai-node/commit/4e255d9627bc6fd2931c173a755628bc2119cc80))
+
 ## 1.15.0 (2025-06-25)
 
 Full Changelog: [v1.14.0...v1.15.0](https://github.com/lumalabs/lumaai-node/compare/v1.14.0...v1.15.0)
