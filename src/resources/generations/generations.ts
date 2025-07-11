@@ -700,7 +700,7 @@ export namespace Generation {
     /**
      * The model used for the modify video
      */
-    model: 'ray-2';
+    model: 'ray-2' | 'ray-flash-2';
 
     /**
      * The callback URL of the generation, a POST request with Generation object will
