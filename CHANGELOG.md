@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.16.1 (2025-07-30)
+
+Full Changelog: [v1.16.0...v1.16.1](https://github.com/lumalabs/lumaai-node/compare/v1.16.0...v1.16.1)
+
+### Chores
+
+* **internal:** remove redundant imports config ([3166af3](https://github.com/lumalabs/lumaai-node/commit/3166af33d408d365f1867f416cf229a70234667b))
+
 ## 1.16.0 (2025-07-11)
 
 Full Changelog: [v1.15.1...v1.16.0](https://github.com/lumalabs/lumaai-node/compare/v1.15.1...v1.16.0)
