@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.16.1 (2025-08-09)
+
+Full Changelog: [v1.16.0...v1.16.1](https://github.com/lumalabs/lumaai-node/compare/v1.16.0...v1.16.1)
+
+### Chores
+
+* **internal:** move publish config ([af67bfc](https://github.com/lumalabs/lumaai-node/commit/af67bfc068d9db1fd11c628ef589d8fac6fb894a))
+* **internal:** remove redundant imports config ([3166af3](https://github.com/lumalabs/lumaai-node/commit/3166af33d408d365f1867f416cf229a70234667b))
+* update @stainless-api/prism-cli to v5.15.0 ([ac4fcec](https://github.com/lumalabs/lumaai-node/commit/ac4fcec610a1a230eeb2b4f5a1f59b60abd9037d))
+
 ## 1.16.0 (2025-07-11)
 
 Full Changelog: [v1.15.1...v1.16.0](https://github.com/lumalabs/lumaai-node/compare/v1.15.1...v1.16.0)
