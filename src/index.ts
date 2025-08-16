@@ -183,6 +183,7 @@ export class LumaAI extends Core.APIClient {
 LumaAI.Generations = Generations;
 LumaAI.Ping = Ping;
 LumaAI.Credits = Credits;
+
 export declare namespace LumaAI {
   export type RequestOptions = Core.RequestOptions;
 
