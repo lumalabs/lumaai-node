@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.17.1 (2025-08-18)
+
+Full Changelog: [v1.16.1...v1.17.1](https://github.com/lumalabs/lumaai-node/compare/v1.16.1...v1.17.1)
+
+### Chores
+
+* **deps:** update dependency node-fetch to v2.6.13 ([96efe1d](https://github.com/lumalabs/lumaai-node/commit/96efe1de69b4752bb0794c52addb0a1864d1d3ee))
+* **internal:** formatting change ([4f8aa44](https://github.com/lumalabs/lumaai-node/commit/4f8aa44ba15b4ee52c589ee3c1d87b72d6ffcfdc))
+* **internal:** update comment in script ([43ff0c4](https://github.com/lumalabs/lumaai-node/commit/43ff0c4def9759d67e25c85645022b6c9ec4afcd))
+
 ## 1.16.1 (2025-08-09)
 
 Full Changelog: [v1.16.0...v1.16.1](https://github.com/lumalabs/lumaai-node/compare/v1.16.0...v1.16.1)
