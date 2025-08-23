@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.17.2 (2025-08-23)
+
+Full Changelog: [v1.17.1...v1.17.2](https://github.com/lumalabs/lumaai-node/compare/v1.17.1...v1.17.2)
+
+### Chores
+
+* update CI script ([ac966fe](https://github.com/lumalabs/lumaai-node/commit/ac966fe9b54e8792a6d91f5c35e8ca60164f6448))
+
 ## 1.17.1 (2025-08-18)
 
 Full Changelog: [v1.16.1...v1.17.1](https://github.com/lumalabs/lumaai-node/compare/v1.16.1...v1.17.1)
