@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.17.3 (2025-09-20)
+
+Full Changelog: [v1.17.2...v1.17.3](https://github.com/lumalabs/lumaai-node/compare/v1.17.2...v1.17.3)
+
+### Bug Fixes
+
+* coerce nullable values to undefined ([727caab](https://github.com/lumalabs/lumaai-node/commit/727caab6c609100764a425961a1efd3557c675b5))
+
+
+### Chores
+
+* ci build action ([462a36f](https://github.com/lumalabs/lumaai-node/commit/462a36fe1dd80993428ae737bddb77e128c3d7fa))
+* do not install brew dependencies in ./scripts/bootstrap by default ([7bb84b5](https://github.com/lumalabs/lumaai-node/commit/7bb84b5d8b47b15976b6ca5b0275b11dfe1abbef))
+
 ## 1.17.2 (2025-08-23)
 
 Full Changelog: [v1.17.1...v1.17.2](https://github.com/lumalabs/lumaai-node/compare/v1.17.1...v1.17.2)
