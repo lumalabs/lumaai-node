@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "lumaai/*": ["dist/src/*"],
-      "lumaai": ["dist/src/index.ts"],
+      "lumaai/*": ["./dist/src/*"],
+      "lumaai": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
