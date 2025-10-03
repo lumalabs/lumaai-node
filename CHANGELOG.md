@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.18.0 (2025-10-03)
+
+Full Changelog: [v1.17.3...v1.18.0](https://github.com/lumalabs/lumaai-node/compare/v1.17.3...v1.18.0)
+
+### Performance Improvements
+
+* faster formatting ([5977649](https://github.com/lumalabs/lumaai-node/commit/5977649802965568ec5a464e9b4137884470cc92))
+
+
+### Chores
+
+* **internal:** codegen related update ([d33cf90](https://github.com/lumalabs/lumaai-node/commit/d33cf90b1f20eb52d189f7d75576b2c7c4de71a8))
+* **internal:** fix incremental formatting in some cases ([5e8652f](https://github.com/lumalabs/lumaai-node/commit/5e8652facd6cb3ecf593e4d42b588a63e4a51ee3))
+* **internal:** ignore .eslintcache ([e6a34e1](https://github.com/lumalabs/lumaai-node/commit/e6a34e13299aa8cb205c22e79ceb1e296a393a27))
+* **internal:** remove deprecated `compilerOptions.baseUrl` from tsconfig.json ([044f520](https://github.com/lumalabs/lumaai-node/commit/044f5206c5908d088952d83dd2aa328b4e0943be))
+
 ## 1.17.3 (2025-09-20)
 
 Full Changelog: [v1.17.2...v1.17.3](https://github.com/lumalabs/lumaai-node/compare/v1.17.2...v1.17.3)
