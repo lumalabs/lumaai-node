@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.18.1 (2025-10-07)
+
+Full Changelog: [v1.18.0...v1.18.1](https://github.com/lumalabs/lumaai-node/compare/v1.18.0...v1.18.1)
+
+### Chores
+
+* **internal:** remove .eslintcache ([b99fcd7](https://github.com/lumalabs/lumaai-node/commit/b99fcd7ebffe9a0b24e637454cd63aa603ba01fc))
+* **internal:** use npm pack for build uploads ([f2e351f](https://github.com/lumalabs/lumaai-node/commit/f2e351f3b16b5b04577c89ae18798de40f5027e1))
+
 ## 1.18.0 (2025-10-03)
 
 Full Changelog: [v1.17.3...v1.18.0](https://github.com/lumalabs/lumaai-node/compare/v1.17.3...v1.18.0)
