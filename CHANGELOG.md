@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.18.2 (2025-12-06)
+
+Full Changelog: [v1.18.1...v1.18.2](https://github.com/lumalabs/lumaai-node/compare/v1.18.1...v1.18.2)
+
+### Bug Fixes
+
+* **mcp:** correct code tool API endpoint ([9b144c5](https://github.com/lumalabs/lumaai-node/commit/9b144c50482c397892aa5711705dfe270d01ccac))
+* **mcp:** return correct lines on typescript errors ([7ae5365](https://github.com/lumalabs/lumaai-node/commit/7ae5365429cfa8d2b385f7bbddad29c251d43d4a))
+
+
+### Chores
+
+* **internal:** codegen related update ([0e07b81](https://github.com/lumalabs/lumaai-node/commit/0e07b81575daa5101b13e70cc279b706a373543b))
+* **internal:** codegen related update ([bb922af](https://github.com/lumalabs/lumaai-node/commit/bb922afdd009b1b9d05359910600da87673442f0))
+
 ## 1.18.1 (2025-10-07)
 
 Full Changelog: [v1.18.0...v1.18.1](https://github.com/lumalabs/lumaai-node/compare/v1.18.0...v1.18.1)
