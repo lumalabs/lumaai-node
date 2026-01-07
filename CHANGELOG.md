@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.19.0 (2026-01-07)
+
+Full Changelog: [v1.18.2...v1.19.0](https://github.com/lumalabs/lumaai-node/compare/v1.18.2...v1.19.0)
+
+### Features
+
+* **api:** api update ([a3ac751](https://github.com/lumalabs/lumaai-node/commit/a3ac751aa24e2e0583bc6e52245a46e19a2d0665))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([4901106](https://github.com/lumalabs/lumaai-node/commit/4901106c59aec4778f659d95ceae0261f0cbb7ae))
+* **internal:** codegen related update ([1ffab48](https://github.com/lumalabs/lumaai-node/commit/1ffab48c52a211df97c3f67cfabbafbe30636f97))
+
 ## 1.18.2 (2025-12-06)
 
 Full Changelog: [v1.18.1...v1.18.2](https://github.com/lumalabs/lumaai-node/compare/v1.18.1...v1.18.2)
