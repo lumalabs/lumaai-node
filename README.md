@@ -112,7 +112,11 @@ const client = new LumaAI({
 });
 
 // Or, configure per-request:
-await client.generations.create({ model: 'ray-2', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.create({
+  model: 'ray-2',
+  aspect_ratio: '16:9',
+  prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+}, {
   maxRetries: 5,
 });
 ```
@@ -129,7 +133,11 @@ const client = new LumaAI({
 });
 
 // Override per-request:
-await client.generations.create({ model: 'ray-2', aspect_ratio: '16:9', prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall' }, {
+await client.generations.create({
+  model: 'ray-2',
+  aspect_ratio: '16:9',
+  prompt: 'A teddy bear in sunglasses playing electric guitar, dancing and headbanging in the jungle in front of a large beautiful waterfall',
+}, {
   timeout: 5 * 1000,
 });
 ```
