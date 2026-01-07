@@ -10,7 +10,7 @@ const client = new LumaAI({
 
 describe('resource generations', () => {
   test('create: only required params', async () => {
-    const responsePromise = client.generations.create({ model: 'ray-1-6' });
+    const responsePromise = client.generations.create({ model: 'ray-2' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -22,7 +22,7 @@ describe('resource generations', () => {
 
   test('create: required and optional params', async () => {
     const response = await client.generations.create({
-      model: 'ray-1-6',
+      model: 'ray-2',
       aspect_ratio: '16:9',
       callback_url: 'https://example.com',
       concepts: [{ key: 'key' }],
