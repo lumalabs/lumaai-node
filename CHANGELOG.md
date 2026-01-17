@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.19.1 (2026-01-17)
+
+Full Changelog: [v1.19.0...v1.19.1](https://github.com/lumalabs/lumaai-node/compare/v1.19.0...v1.19.1)
+
+### Chores
+
+* **internal:** update `actions/checkout` version ([c84ff17](https://github.com/lumalabs/lumaai-node/commit/c84ff17de3fc40a488b80f309dfce7e3372550f6))
+* **internal:** upgrade babel, qs, js-yaml ([c5306fe](https://github.com/lumalabs/lumaai-node/commit/c5306fe46e398a9d206bcfacf468fd160b9202d7))
+
 ## 1.19.0 (2026-01-07)
 
 Full Changelog: [v1.18.2...v1.19.0](https://github.com/lumalabs/lumaai-node/compare/v1.18.2...v1.19.0)
