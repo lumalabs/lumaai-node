@@ -73,7 +73,7 @@ async function defaultParseResponse<T>(props: APIResponseProps): Promise<T> {
     const contentLength = response.headers.get('content-length');
     if (contentLength === '0') {
       // if there is no content we can't do anything
-      return undefined as T;
+      return null as T;
     }
 
     const json = await response.json();
