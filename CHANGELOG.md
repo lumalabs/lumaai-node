@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.20.0 (2026-02-08)
+
+Full Changelog: [v1.19.1...v1.20.0](https://github.com/lumalabs/lumaai-node/compare/v1.19.1...v1.20.0)
+
+### Chores
+
+* **ci:** upgrade `actions/github-script` ([738f343](https://github.com/lumalabs/lumaai-node/commit/738f34371546ad1bf6ed82e1707ea037bc7ddf02))
+* **client:** do not parse responses with empty content-length ([7ff4747](https://github.com/lumalabs/lumaai-node/commit/7ff47477c657a2944cc9a40da748477460a68d62))
+
 ## 1.19.1 (2026-01-17)
 
 Full Changelog: [v1.19.0...v1.19.1](https://github.com/lumalabs/lumaai-node/compare/v1.19.0...v1.19.1)
