@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.20.1 (2026-02-20)
+
+Full Changelog: [v1.20.0...v1.20.1](https://github.com/lumalabs/lumaai-node/compare/v1.20.0...v1.20.1)
+
+### Chores
+
+* update mock server docs ([f625696](https://github.com/lumalabs/lumaai-node/commit/f625696b39864ebef7090f47bf9513a017efa08c))
+
 ## 1.20.0 (2026-02-08)
 
 Full Changelog: [v1.19.1...v1.20.0](https://github.com/lumalabs/lumaai-node/compare/v1.19.1...v1.20.0)
