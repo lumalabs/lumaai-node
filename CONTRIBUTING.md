@@ -60,7 +60,7 @@ $ yarn link lumaai
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global lumaai
+$ pnpm link --global lumaai
 ```
 
 ## Running tests
