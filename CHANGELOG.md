@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.20.1 (2026-02-27)
+
+Full Changelog: [v1.20.0...v1.20.1](https://github.com/lumalabs/lumaai-node/compare/v1.20.0...v1.20.1)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([35ace89](https://github.com/lumalabs/lumaai-node/commit/35ace89e0c1a84d1d241dbbd48e6f6b879b8f5f6))
+
+
+### Chores
+
+* **internal:** move stringifyQuery implementation to internal function ([c8f608f](https://github.com/lumalabs/lumaai-node/commit/c8f608f2b3b52db38d2e2fccdc4a262ea4538d14))
+* update mock server docs ([f625696](https://github.com/lumalabs/lumaai-node/commit/f625696b39864ebef7090f47bf9513a017efa08c))
+
 ## 1.20.0 (2026-02-08)
 
 Full Changelog: [v1.19.1...v1.20.0](https://github.com/lumalabs/lumaai-node/compare/v1.19.1...v1.20.0)
