@@ -620,7 +620,7 @@ export abstract class APIClient {
 
     // If the API asks us to wait a certain amount of time, do what it says.
     // Otherwise calculate a default.
-    if (timeoutMillis === undefined) {
+    if (!(timeoutMillis && 0 <= timeoutMillis && timeoutMillis < 60 * 1000)) {
       const maxRetries = options.maxRetries ?? this.maxRetries;
       timeoutMillis = this.calculateDefaultRetryTimeoutMillis(retriesRemaining, maxRetries);
     }
