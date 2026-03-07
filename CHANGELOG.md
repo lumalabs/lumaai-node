@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.20.1 (2026-03-07)
+
+Full Changelog: [v1.20.0...v1.20.1](https://github.com/lumalabs/lumaai-node/compare/v1.20.0...v1.20.1)
+
+### Bug Fixes
+
+* **client:** preserve URL params already embedded in path ([bd71801](https://github.com/lumalabs/lumaai-node/commit/bd718018365cbd54350cb25fec6d4696dd4a4142))
+* **docs/contributing:** correct pnpm link command ([35ace89](https://github.com/lumalabs/lumaai-node/commit/35ace89e0c1a84d1d241dbbd48e6f6b879b8f5f6))
+
+
+### Chores
+
+* **ci:** skip uploading artifacts on stainless-internal branches ([0948668](https://github.com/lumalabs/lumaai-node/commit/0948668b08784afc6d6308b959d7c0812fe5e9f1))
+* **internal:** codegen related update ([16451fa](https://github.com/lumalabs/lumaai-node/commit/16451fa5bdd71a79efc12586a717ae9e24cb794a))
+* **internal:** move stringifyQuery implementation to internal function ([c8f608f](https://github.com/lumalabs/lumaai-node/commit/c8f608f2b3b52db38d2e2fccdc4a262ea4538d14))
+* **test:** do not count install time for mock server timeout ([1905253](https://github.com/lumalabs/lumaai-node/commit/1905253f076eaa16e2d3ef16919b913ee4ccc11b))
+* update mock server docs ([f625696](https://github.com/lumalabs/lumaai-node/commit/f625696b39864ebef7090f47bf9513a017efa08c))
+
 ## 1.20.0 (2026-02-08)
 
 Full Changelog: [v1.19.1...v1.20.0](https://github.com/lumalabs/lumaai-node/compare/v1.19.1...v1.20.0)
