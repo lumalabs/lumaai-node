@@ -1,5 +1,27 @@
 # Changelog
 
+## 1.21.0 (2026-04-07)
+
+Full Changelog: [v1.20.1...v1.21.0](https://github.com/lumalabs/lumaai-node/compare/v1.20.1...v1.21.0)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([efd1f56](https://github.com/lumalabs/lumaai-node/commit/efd1f56da899135a85947f56942cbdb619e7ed34))
+* **internal:** tweak CI branches ([6289442](https://github.com/lumalabs/lumaai-node/commit/628944241252402d556a9e9749017292f8e8811a))
+* **internal:** update gitignore ([85600b8](https://github.com/lumalabs/lumaai-node/commit/85600b89495891d31b182355c01995654730a716))
+* **internal:** update multipart form array serialization ([e885db6](https://github.com/lumalabs/lumaai-node/commit/e885db63473e702021db3b6c49a475d6ccffbc0b))
+* **tests:** bump steady to v0.19.4 ([8a4a688](https://github.com/lumalabs/lumaai-node/commit/8a4a68863027dc5736579b2c56126f09c3be6bbe))
+* **tests:** bump steady to v0.19.5 ([1483d4e](https://github.com/lumalabs/lumaai-node/commit/1483d4e6871c4c344e7dca8f547cb66e34ae0157))
+* **tests:** bump steady to v0.19.6 ([218c9bf](https://github.com/lumalabs/lumaai-node/commit/218c9bf7bd2cf6c4cb1f923f3ffb7c5dbf454008))
+* **tests:** bump steady to v0.19.7 ([267571b](https://github.com/lumalabs/lumaai-node/commit/267571b272875e5f76bcd1ab9ae50ceb82afd33d))
+* **tests:** bump steady to v0.20.1 ([ef4ffb0](https://github.com/lumalabs/lumaai-node/commit/ef4ffb0015c84620aed44aa776ed00bae72ca8fa))
+* **tests:** bump steady to v0.20.2 ([ec49210](https://github.com/lumalabs/lumaai-node/commit/ec492103923dd64893ced8d5c370c74812eb79ce))
+
+
+### Refactors
+
+* **tests:** switch from prism to steady ([a593f8e](https://github.com/lumalabs/lumaai-node/commit/a593f8ed86ca9d5d74b79a810d8385d8c6549d7a))
+
 ## 1.20.1 (2026-03-07)
 
 Full Changelog: [v1.20.0...v1.20.1](https://github.com/lumalabs/lumaai-node/compare/v1.20.0...v1.20.1)
