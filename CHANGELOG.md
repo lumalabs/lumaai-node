@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.21.1 (2026-04-09)
+
+Full Changelog: [v1.21.0...v1.21.1](https://github.com/lumalabs/lumaai-node/compare/v1.21.0...v1.21.1)
+
+### Chores
+
+* **internal:** codegen related update ([ea2dc94](https://github.com/lumalabs/lumaai-node/commit/ea2dc949385aa5bfafdbdadc434af2922e5f37ff))
+
 ## 1.21.0 (2026-04-07)
 
 Full Changelog: [v1.20.1...v1.21.0](https://github.com/lumalabs/lumaai-node/compare/v1.20.1...v1.21.0)
