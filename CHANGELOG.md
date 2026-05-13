@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.22.0 (2026-05-13)
+
+Full Changelog: [v1.21.0...v1.22.0](https://github.com/lumalabs/lumaai-node/compare/v1.21.0...v1.22.0)
+
+### Features
+
+* support setting headers via env ([773d8ec](https://github.com/lumalabs/lumaai-node/commit/773d8ec319e24f6e0a133a98f89812900fd226cd))
+
+
+### Chores
+
+* **internal:** codegen related update ([ea2dc94](https://github.com/lumalabs/lumaai-node/commit/ea2dc949385aa5bfafdbdadc434af2922e5f37ff))
+* **internal:** more robust bootstrap script ([1b8c824](https://github.com/lumalabs/lumaai-node/commit/1b8c8240b9519cd6ca5c99e21598d568f68fa075))
+* **tests:** bump steady to v0.22.1 ([bdf09c8](https://github.com/lumalabs/lumaai-node/commit/bdf09c8dd721cb5685d5d2f652d20764e75cbc37))
+
 ## 1.21.0 (2026-04-07)
 
 Full Changelog: [v1.20.1...v1.21.0](https://github.com/lumalabs/lumaai-node/compare/v1.20.1...v1.21.0)
