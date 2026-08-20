@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.22.0 (2026-08-20)
+
+Full Changelog: [v1.21.0...v1.22.0](https://github.com/lumalabs/lumaai-node/compare/v1.21.0...v1.22.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([22d285e](https://github.com/lumalabs/lumaai-node/commit/22d285e5d0e96cc1bba820b078f9987a65085798))
+* support setting headers via env ([773d8ec](https://github.com/lumalabs/lumaai-node/commit/773d8ec319e24f6e0a133a98f89812900fd226cd))
+
+
+### Chores
+
+* **internal:** allow the mock server port to be set with STAINLESS_MOCK_PORT ([867542d](https://github.com/lumalabs/lumaai-node/commit/867542d020d3a470a5787d1625487408b2ca618f))
+* **internal:** codegen related update ([ea2dc94](https://github.com/lumalabs/lumaai-node/commit/ea2dc949385aa5bfafdbdadc434af2922e5f37ff))
+* **internal:** more robust bootstrap script ([1b8c824](https://github.com/lumalabs/lumaai-node/commit/1b8c8240b9519cd6ca5c99e21598d568f68fa075))
+* **tests:** bump steady to v0.22.1 ([bdf09c8](https://github.com/lumalabs/lumaai-node/commit/bdf09c8dd721cb5685d5d2f652d20764e75cbc37))
+
 ## 1.21.0 (2026-04-07)
 
 Full Changelog: [v1.20.1...v1.21.0](https://github.com/lumalabs/lumaai-node/compare/v1.20.1...v1.21.0)
